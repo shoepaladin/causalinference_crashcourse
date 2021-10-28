@@ -27,6 +27,8 @@ Esther Duflo has a [high-level overview](https://conference.nber.org/conf_papers
 ### Multiple Hypothesis Testing
 
 Heterogeneous treatment effects broadly run a multiple hypothesis testing problem. For example, suppose there are 100 individual level treatment effects estimated. Then 5\% of them should be statistically significant at the 95\% level due to random chance. You can think of this as the False Discovery Rate (FDR). It is not clear how to address this problem, but here are some things to think about:
+1. [Alpha-investing](http://www-stat.wharton.upenn.edu/~stine/research/mfdr.pdf)by Foster and Stine )
+2. FRD by Efron and Hastie’s [Computer Age and Statistical Inference](https://web.stanford.edu/~hastie/CASI_files/PDF/casi.pdf) Chapter 15.
 
 ### Feature Selection and High Dimensionality
 
@@ -48,8 +50,6 @@ There are two papers, which you should read sequentially. First is the [Causal F
 
 [Farrell et al](https://arxiv.org/abs/1809.09953). have a paper on this, where the main contribution is the inference result.
 
-* [Alpha-investing](http://www-stat.wharton.upenn.edu/~stine/research/mfdr.pdf)by Foster and Stine )
-* FRD by Efron and Hastie’s [Computer Age and Statistical Inference](https://web.stanford.edu/~hastie/CASI_files/PDF/casi.pdf) Chapter 15.
 
 ## General ML
 
