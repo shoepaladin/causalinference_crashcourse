@@ -19,6 +19,7 @@ This covers some causal models for estimating the Average Treatment Effect (ATE)
 	- Double Machine Learning
 	- Doubly Robust methods (in Appendix)
 	- Instrumental Variables (in Appendix)
+
 **3. ATE/ATET Inference** <br> 
 This covers the high-level inference and distributional properties of causal estimators. It also discusses how and when bootstrapping is helpful.
 
