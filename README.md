@@ -8,10 +8,10 @@ Causal Inference Crash Course which is a series of slides/presentations that cov
 
 
 ## Covered Topics
-**1. Foundations of Causal Inference** <br>
+### 1. Foundations of Causal Inference
 This covers how the causal inference problem can be thought of as a missing data problem. Specifically the missing counterfactual problem, based on the Potential Outcomes mental model.
 
-**2. Defining Some ATE/ATET Causal Models** <br>
+### 2. Defining Some ATE/ATET Causal Models
 This covers some causal models for estimating the Average Treatment Effect (ATE) and Average Treatment Effect on the Treated (ATET) using cross-sectional causal models. It covers:
 	- Ordinary Least Squares
 	- Propensity Binning
@@ -20,22 +20,22 @@ This covers some causal models for estimating the Average Treatment Effect (ATE)
 	- Doubly Robust methods (in Appendix)
 	- Instrumental Variables (in Appendix)
 
-**3. ATE/ATET Inference** <br> 
+### 3. ATE/ATET Inference
 This covers the high-level inference and distributional properties of causal estimators. It also discusses how and when bootstrapping is helpful.
 
-**4. Best Practices: Outliers, Class Imbalance, Feature Selection, and Bad Control** <br> 
+### 4. Best Practices: Outliers, Feature Selection, Bad Control, and Propensity Trimming
 *Partially completed*, these slides describe the challenge of having outlier values in data on estimating causal parameters and proposes some ad-hoc solutions. 
 
-**5. Heterogeneous Treatment Effect Models and Inference** <br> 
+### 5. Heterogeneous Treatment Effect Models and Inference
 This describes how heterogeneous treatment effect (HTE) problems pose additional challenges on top of ATE/ATET problems. It also overviews double machine learning and tree-based HTE models.
 
-**6. Difference-in-Difference Models for Panel Data** <br>
+### 6. Difference-in-Difference Models for Panel Data
 *WiP*
 
-**7. Regression Discontinuity Models** <br> 
+### 7. Regression Discontinuity Models
 *WiP*
 
-**8. Arguable Validation** <br> 
+### 8. Arguable Validation
 *WiP*
 
 		
