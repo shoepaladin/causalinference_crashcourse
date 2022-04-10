@@ -10,6 +10,8 @@ Causal Inference Crash Course which is a series of slides/presentations that cov
 ## Covered Topics
 ### 1. Foundations of Causal Inference
 This covers how the causal inference problem can be thought of as a missing data problem. Specifically the missing counterfactual problem, based on the Potential Outcomes mental model.
+*Update 10-apr-2022* Notebook support for how causal models and traditional ML models are different.
+
 
 ### 2. Defining Some ATE/ATET Causal Models
 This covers some causal models for estimating the Average Treatment Effect (ATE) and Average Treatment Effect on the Treated (ATET) using cross-sectional causal models. It covers:
@@ -38,4 +40,6 @@ This describes how heterogeneous treatment effect (HTE) problems pose additional
 ### 8. Arguable Validation
 *WiP*
 
+### 9. Synthetic Control
+*WiP*
 		
