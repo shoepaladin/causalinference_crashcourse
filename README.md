@@ -32,7 +32,7 @@ This covers the high-level inference and distributional properties of causal est
 This describes how heterogeneous treatment effect (HTE) problems pose additional challenges on top of ATE/ATET problems. It also overviews double machine learning and tree-based HTE models.
 
 ### 6. Panel Data
-Introduces difference-in-difference models and fixed effects models.
+*WiP* Introduces difference-in-difference models and fixed effects models.
 
 ### 7. Regression Discontinuity Models
 *WiP*
