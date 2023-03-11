@@ -32,7 +32,7 @@ This covers the high-level inference and distributional properties of causal est
 This describes how heterogeneous treatment effect (HTE) problems pose additional challenges on top of ATE/ATET problems. It also overviews double machine learning and tree-based HTE models.
 
 ### 6. Panel Data
-*WiP* Introduces difference-in-difference models and fixed effects models.
+This does a comparison to cross-sectional models described above, and summarizes the standard difference-in-difference (DiD) models and synthetic control (SC) models, covering three different models. These slides list references for advances topics, such as staggered DiD, and conformal inference. Synthetic DiD will be supported in a separate slide given that it builds upon concepts from DiD and SDiD.
 
 ### 7. Regression Discontinuity Models
 *WiP*
@@ -40,6 +40,5 @@ This describes how heterogeneous treatment effect (HTE) problems pose additional
 ### 8. Arguable Validation
 *WiP*
 
-### 9. Synthetic Control
-*WiP*
+
 		
