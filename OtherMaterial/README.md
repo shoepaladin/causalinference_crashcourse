@@ -4,8 +4,7 @@ The material is intended for economists or scientists familiar with causal infer
 Please feel free to comment and add resources. For the sake of convenience, please do not remove anything. There is a section of “Old Material”l at the bottom for this. Thanks!
 
 ## Causality Review
-
-[Potential outcomes](https://youtu.be/q8x9aetyok0) and the [fundamental problem of causal inference](https://youtu.be/RGvI0uVMgtw)
+Causal problems can be reframed around the problem of not observing the potential outcomes of a given unit under treatment and control status. That is, we only see their outcome under treatment or control status, but not both. Learn more about potential outcomes [here](https://youtu.be/q8x9aetyok0) and the fundamental problem of causal inference [here](https://youtu.be/RGvI0uVMgtw).
 
 For a review of the conditional independence assumption AKA unconfoundedness, you can watch [these for an intuitive](https://www.youtube.com/watch?v=XJrTIsy_2Mk&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=61) explanation. All the models covered in this Quip that rely on this can be first simply understood as propensity score matching based model, which you can review [here](https://www.youtube.com/watch?v=s1YpulokvEQ&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=68), or [here too](https://www.youtube.com/watch?v=h0UU6trKR0E&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=73), or [even here too](https://www.youtube.com/watch?v=KlL2EVLnLX8). and why you [should never do it](https://www.youtube.com/watch?v=rBv39pK1iEs). Here is a [paper](https://www.kellogg.northwestern.edu/faculty/research/researchdetail?guid=aabd515d-67f4-11eb-a9b5-0242ac160003) that also finds limitations of propensity-based models, and that running experiments should continue to be the gold standard for inference.
 
@@ -20,6 +19,9 @@ For a review of the conditional independence assumption AKA unconfoundedness, yo
 8. Structural Selection Models (Walters)
 9. Bayesian and ML (Walters) - Note this is “ML-lite” for econometrics, mostly just Lasso 
 
+
+
+
 ## Causal ML / Heterogeneous Treatment Effects
 
 Esther Duflo has a [high-level overview](https://conference.nber.org/conf_papers/f114791.slides.pdf) of how ML and econometrics can mix.  The linked slides touch on material covered below. Please note that “real” ML is not just running a lasso regression.
@@ -27,8 +29,11 @@ Esther Duflo has a [high-level overview](https://conference.nber.org/conf_papers
 ### Multiple Hypothesis Testing
 
 Heterogeneous treatment effects broadly run a multiple hypothesis testing problem. For example, suppose there are 100 individual level treatment effects estimated. Then 5\% of them should be statistically significant at the 95\% level due to random chance. You can think of this as the False Discovery Rate (FDR). It is not clear how to address this problem, but here are some things to think about:
-1. [Alpha-investing](http://www-stat.wharton.upenn.edu/~stine/research/mfdr.pdf)by Foster and Stine )
+1. [Alpha-investing](http://www-stat.wharton.upenn.edu/~stine/research/mfdr.pdf) by Foster and Stine )
 2. FRD by Efron and Hastie’s [Computer Age and Statistical Inference](https://web.stanford.edu/~hastie/CASI_files/PDF/casi.pdf) Chapter 15.
+
+Here is also a good chapter on understanding statistical power from [Andrew Gelman's book](http://www.stat.columbia.edu/~gelman/stuff_for_blog/chap20.pdf). 
+
 
 ### Feature Selection and High Dimensionality
 
