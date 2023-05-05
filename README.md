@@ -38,7 +38,7 @@ This does a comparison to cross-sectional models described above, and summarizes
 *WiP*
 
 ### 8. Arguable Validation
-*WiP*
+We consider three types of arguable validation of causal models, from placebo testing and coefficient stability via [Oster 2013](https://www.nber.org/papers/w19054), and covariate balancing.
 
 
 		
