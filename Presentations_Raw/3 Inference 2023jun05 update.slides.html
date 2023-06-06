@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>1  Foundations 2023may28 update slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>3 Inference 2023jun05 update slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14634,79 +14634,14 @@ div.jp-OutputPrompt {
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
 <div class="reveal">
-<div class="slides"><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to slides --post serve <span class="s2">&quot;1  Foundations 2023may28 update.ipynb&quot;</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>[NbConvertApp] Converting notebook 1  Foundations 2023may28 update.ipynb to slides
-[NbConvertApp] Writing 618495 bytes to 1  Foundations 2023may28 update.slides.html
-[NbConvertApp] Redirecting reveal.js requests to https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0
-Traceback (most recent call last):
-  File &#34;C:\Users\tarob\anaconda3\Scripts\jupyter-nbconvert-script.py&#34;, line 10, in &lt;module&gt;
-    sys.exit(main())
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\jupyter_core\application.py&#34;, line 269, in launch_instance
-    return super().launch_instance(argv=argv, **kwargs)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\traitlets\config\application.py&#34;, line 846, in launch_instance
-    app.start()
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 369, in start
-    self.convert_notebooks()
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 541, in convert_notebooks
-    self.convert_single_notebook(notebook_filename)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 508, in convert_single_notebook
-    self.postprocess_single_notebook(write_results)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 480, in postprocess_single_notebook
-    self.postprocessor(write_results)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\nbconvert\postprocessors\base.py&#34;, line 28, in __call__
-    self.postprocess(input)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\nbconvert\postprocessors\serve.py&#34;, line 90, in postprocess
-    http_server.listen(self.port, address=self.ip)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\tornado\tcpserver.py&#34;, line 151, in listen
-    sockets = bind_sockets(port, address=address)
-  File &#34;C:\Users\tarob\anaconda3\lib\site-packages\tornado\netutil.py&#34;, line 161, in bind_sockets
-    sock.bind(sockaddr)
-OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></section></section><section><section>
+<div class="slides"><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Causal-Inference-Crash-Course:">Causal Inference Crash Course:<a class="anchor-link" href="#Causal-Inference-Crash-Course:">&#182;</a></h2><h1 id="Foundations">Foundations<a class="anchor-link" href="#Foundations">&#182;</a></h1><p>Julian Hsu</p>
+<h1 id="Causal-Inference-Crash-Course">Causal Inference Crash Course<a class="anchor-link" href="#Causal-Inference-Crash-Course">&#182;</a></h1><h2 id="Inference">Inference<a class="anchor-link" href="#Inference">&#182;</a></h2><p>Julian Hsu</p>
 
 </div>
 </div>
@@ -14719,171 +14654,139 @@ OSError: [WinError 10048] Only one usage of each socket address (protocol/networ
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h2><ul>
-<li>This is intended to be the first in a series of causal inference</li>
-<li>This presentation will cover:<ul>
-<li>The fundamental problem of causal inference</li>
-<li>Necessary assumptions for valid causal inference</li>
-<li>Working example with simulated data</li>
+<li>This presentation will describe the “inference” in causal inference.</li>
 </ul>
-</li>
-<li>The intended audience is a scientist familiar with basic statistics and unfamiliar with causal inference</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Fundamental-problem-of-causal-inference">Fundamental problem of causal inference<a class="anchor-link" href="#Fundamental-problem-of-causal-inference">&#182;</a></h2><ul>
-<li>Suppose we want to estimate the return of investment of going to 
-college on career earnings.</li>
-<li>Data:<ul>
-<li>Earnings of college-goers: $Y_i (W_i=1)$<ul>
-<li>Earnings of non-college-goers: $Y_i (W_i=0)$</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Can we just compare the earnings of college-goers and non-collegegoers?<ul>
-<li>Naïve difference: $ Y_i (W_i=1) - Y_i (W_i=0)$</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Do-we-know-what-happens-in-the-counterfactual-situation?">Do we know what happens in the counterfactual situation?<a class="anchor-link" href="#Do-we-know-what-happens-in-the-counterfactual-situation?">&#182;</a></h2><ul>
-<li>We cannot, because college-goers tend to be different from non-college-goers. </li>
-<li>In other words, we do not think that the observed earnings of non-college-goers accurately represents the earnings of college-goers if they did not go to college, and vice versa.<ul>
-<li>In other words, correlation is not causation.</li>
-</ul>
-</li>
-<li>We formalize this with the “potential outcomes” mental model (aka 
-Neyman-Rubin causal model)</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Potential-outcomes-framework">Potential outcomes framework<a class="anchor-link" href="#Potential-outcomes-framework">&#182;</a></h2><ul>
-<li>There is a difference between what we observe, and what we wish we could observe.</li>
-</ul>
-<table>
-<thead><tr>
-<th></th>
-<th>If they did not go to college</th>
-<th>If they went to college</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Non-College goers</td>
-<td>$ Y_i (0,0)$, observed</td>
-<td>$ Y_i (0,1)$, counterfactual</td>
-</tr>
-<tr>
-<td>College goers</td>
-<td>$ Y_i (1,0)$, counterfactual</td>
-<td>$ Y_i (0,1)$, observed</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>We only observe $Y_i (0,0)$ and $Y_i (1,1)$ but we want to observe the counterfactuals.</li>
-<li>• If we think that $Y_i (1,1) - Y_i (0,0)$ is the real effect of going to college, 
-then we are also assuming that $Y_i (1,1) = Y_i (0,1)$ and  $Y_i (0,0) = Y_i (1,0)$.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Selection-Bias">Selection Bias<a class="anchor-link" href="#Selection-Bias">&#182;</a></h2><p>Why would  $Y_i (1,1) \neq Y_i (0,1)$? If college goers did so because they 
-believed they would get more out of it than those who did not go.</p>
-
-<pre><code>* College attendees may be higher ability and thus get more out of college
-</code></pre>
-<ul>
-<li>This is called selection bias</li>
-<li>Causal inference models can address selection bias – under certain 
-conditions</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Causal-inference-and-reporting">Causal inference and reporting<a class="anchor-link" href="#Causal-inference-and-reporting">&#182;</a></h2><ul>
-<li>The usual metric for reporting purposes is the Average Treatment Effect on the Treated (ATET). <ul>
-<li>ATET answers “What is the impact of going to college for college-goers?”</li>
-<li>aka: $Y_i (1,1) = Y_i (1,0)$</li>
-</ul>
-</li>
-<li>Causal inference cares about the Average Treatment Effect (ATE) and ATET.<ul>
-<li>ATE answers “What is the impact of going to college?”</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Three-necessary-assumptions-for-valid-causal-inference">Three necessary assumptions for valid causal inference<a class="anchor-link" href="#Three-necessary-assumptions-for-valid-causal-inference">&#182;</a></h2><ol>
-<li>Unconfoundedness assumption$^1$: treatment status is random once we condition based on pre-treatment features $X_i$<ul>
-<li>Conditioning based on $X_i$ is equivalent to comparing synthetic twins</li>
-<li>AKA – there is no omitted variable bias</li>
-</ul>
-</li>
+<ol>
+<li>Inference and consistency for OLS</li>
+<li>Challenge of applying asymptotic theory </li>
+<li>Bootstrapping is not a slow silver bullet</li>
 </ol>
 <ul>
-<li>Setup for an Example: <ul>
-<li>Observed outcome: $Y_i = f(X_1, X_2, \psi) + \tau W(X_1, X_2, \epsilon) $</li>
-<li>$f(X_1, X_2, \psi)$ is a function that determines outcome for control accounts</li>
-<li>$\tau$ is the treatment effect</li>
-<li>$W(X_1, X_2, \epsilon)$ is a function that determines whether observation is in treatment or control</li>
+<li>We will only focus on inference for the ATE/ATET and not HTE. HTE incorporates additional inference challenges we will cover as part of HTE models.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Statistical-inference-overview">Statistical inference overview<a class="anchor-link" href="#Statistical-inference-overview">&#182;</a></h2><ul>
+<li><p>Suppose we have a sample ($X$) and want to know whether its average is different from a given number, say zero. 
+$$X = (x_1, x_2, ..., x_N) \text{ and } X \sim F(\theta)$$</p>
+</li>
+<li><p>We want to know whether a new sample from $F(\theta)$ would be different from zero on average.</p>
+</li>
+<li>Our null hypothesis is that the average of $X$ is zero.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Hypothesis-testing-and-confidence-intervals">Hypothesis testing and confidence intervals<a class="anchor-link" href="#Hypothesis-testing-and-confidence-intervals">&#182;</a></h1><ul>
+<li>If we standardize the distribution of $X$, then we get a metric $t$ that we know is distributed by a Student’s t-distribution, which asymptotically approaches a normal distribution as the sample size increases
+$$ t = \dfrac{\bar{X} - 0}{se} $$
+where $se = \frac{\text{sample standard deviation}}{\sqrt{N}}$,
+and $t \rightarrow^d N(0,1) $.</li>
+<li>This derivation relies on the Law of Large Numbers to that we can assume normality.</li>
+<li>This statistic tests our null hypothesis that $\bar{X} = 0$</li>
+<li>This is useful because now we can model the variation in $X$ if we drew more samples.</li>
+<li>We can now use this to form a confidence interval. A 95% confidence interval contains the range for 95% of future draws of $X$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="OLS-statistical-inference">OLS statistical inference<a class="anchor-link" href="#OLS-statistical-inference">&#182;</a></h2><ul>
+<li>We can apply similar theories to do inference for an OLS regression
+$$Y+i = \hat{\beta} X_i + \epsilon_i$$</li>
+<li>We previously showed that $\hat{\beta}$ will be unbiased. But how do we know the estimates are not driven by noise?</li>
+<li>Specifically, if we made another dataset, would we get the same value 
+for $\hat{\beta}$?</li>
+<li>In other words, what is the distribution of $\hat{\beta}$?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Distribution-of-the-OLS-estimator">Distribution of the OLS estimator<a class="anchor-link" href="#Distribution-of-the-OLS-estimator">&#182;</a></h2><ul>
+<li>We will use that $\hat{\beta}$ is consistent and converges to the true value $\beta$:
+\begin{array}{rl}
+\hat{\beta} =&amp; (X'X)^{-1}(X'y) \\
+=&amp; (X'X)^{-1}(X'(X\beta + \epsilon)) \\
+=&amp; (X'X)^{-1}(X'X\beta) + (X'X)^{-1}X'\epsilon \\
+=&amp; \beta + (X'X)^{-1}(X'\epsilon)
+\end{array}</li>
+<li>How is $(X'X)^{-1}(X'\epsilon)$ distributed? We can then show that:
+$$ \sqrt{N}(\hat{\beta} - \beta) \rightarrow^d N(0, \Sigma) $$</li>
+<li>Where $\Sigma = \frac{1}{N}(X'X)^{-1}\frac{1}{N}(X'\epsilon \epsilon'X) \frac{1}{N}(X'X)^{-1}$</li>
+<li>If we gathered more data and recalculated $\hat{\beta}$ the distribution of those calculations would asymptotically converge to $\Sigma$</li>
+<li>This now tells us the joint distribution of  $\hat{\beta}$. Now we can calculate confidence intervals. </li>
+<li>See the Appendix for how to test hypothesis based on transformations of  $\hat{\beta}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Inference-is-not-bias">Inference is not bias<a class="anchor-link" href="#Inference-is-not-bias">&#182;</a></h2><ul>
+<li>Confidence intervals are about whether we would get the same estimates a certain proportion of the time.</li>
+<li>A 95% confidence interval contains 95% of the possible estimates we would get from resampling the data. </li>
+<li>But $\hat{\beta}$ could be biased. $\hat{\beta}$ can consistently estimate a biased value.
+$$ \sqrt{N}(\hat{\beta} - \beta) \rightarrow^d N(\text{bias}, \Sigma) $$</li>
+<li>Therefore, $\hat{\beta}$can be statistically significant and biased</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Inference-is-also-not-forecasting">Inference is also not forecasting<a class="anchor-link" href="#Inference-is-also-not-forecasting">&#182;</a></h2><ul>
+<li>We interpret the confidence interval as what the estimate would be if we collected more $(Y,X)$ data from $F(y|x , \theta)$</li>
+<li>“More data” doesn’t mean data from another context. For example, a confidence interval using data from $F_{t=1}(y|x , \theta)$ does not directly inform the results we would get from using data from $F_{t=1}(y|x , \theta)$<ul>
+<li>The confidence interval doesn’t directly answer whether $\hat{\beta}$ would be the same if we collected data from next month. </li>
 </ul>
 </li>
+<li>If the underlying data generating process changes over time, then we will have model misspecification biases.</li>
+<li>Model misspecification cause problems with inference.</li>
 </ul>
-<p>$^1$ aka selection-on-observables, conditional independence, ignorability, conditional independence assumptions.</p>
 
 </div>
 </div>
@@ -14895,16 +14798,69 @@ conditions</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Scenario-1:-the-ideal">Scenario 1: the ideal<a class="anchor-link" href="#Scenario-1:-the-ideal">&#182;</a></h2><ul>
-<li>Observed outcome: $Y_i = f(X_1, X_2, \psi) + \tau W(X_1, X_2, \epsilon) $</li>
-<li>$X_1, X_2$ are observed</li>
-<li>$\psi, \epsilon$ are not observed, but are independent of each other</li>
-<li>Therefore, variation in treatment and the outcome conditional on 
-$X_1, X_2 $ are independent of each other.<ul>
-<li>aka cov$(Y | X_1, X_2,  , W|X_1,X_2)=0$</li>
+<h2 id="Model-misspecification-also-creates-bias">Model misspecification also creates bias<a class="anchor-link" href="#Model-misspecification-also-creates-bias">&#182;</a></h2><ul>
+<li>For example, the true model is: $Y = \beta_1 X_1 + \beta_2 X_2 + \epsilon $</li>
+<li>But we instead estimate this model: $Y = \beta_1 X_1 + \beta_2 X_2 + +beta_3 X_2^2 + \nu $</li>
+<li>You have a misspecified model and so your estimate of $\beta_1$ will be different but can still be statistically significant.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Why-can%E2%80%99t-I-just-use-LASSO-and-select-features?">Why can&#8217;t I just use LASSO and select features?<a class="anchor-link" href="#Why-can%E2%80%99t-I-just-use-LASSO-and-select-features?">&#182;</a></h2><ul>
+<li>Since LASSO selects features, we cannot do inference. </li>
+<li>LASSO coefficients are estimates using a penalty term for L1 regularization.</li>
+<li>Therefore, we cannot say that the coefficients from a LASSO regression are consistent and converge to the true coefficients.</li>
+<li>In other words, LASSO coefficients have two interpretations: the causal estimate of $\hat{\tau}$ and a bias towards zero to maximize prediction</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Model-misspecification-in-a-regression-adjustment-model">Model misspecification in a regression adjustment model<a class="anchor-link" href="#Model-misspecification-in-a-regression-adjustment-model">&#182;</a></h2><ul>
+<li><p>Recall the high-level model algorithm:</p>
+<ol>
+<li>Estimate the counterfactual control and treatment outcomes $\hat{Y}_0$ and $\hat{Y}_1$;</li>
+<li>Estimate ATE/ATET based on the differences between them.</li>
+</ol>
+</li>
+<li><p>Ideally, $\hat{Y}_0$ and $\hat{Y}_1$ represent the true counterfactual outcomes. But if they are wrong, then the ATE/ATET estimate can still be wrong.</p>
+</li>
+<li>But it can still be statistically significant.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="How-do-we-deal-with-model-misspecification?">How do we deal with model misspecification?<a class="anchor-link" href="#How-do-we-deal-with-model-misspecification?">&#182;</a></h2><ul>
+<li>Each model will generate some model misspecification bias</li>
+<li>The recommendation is to try do robustness checks. Try different model specifications, and they should provide similar results<ul>
+<li>Transforming features like squares </li>
+<li>Linear and non-linear models</li>
 </ul>
 </li>
-<li>Then conditioning on $X_1, X_2$ yields an unbiased estomate if $\tau$</li>
+<li>The No Free Lunch Theorem (Wolpert and Macready, 1997) states that there is no model with universally superior performance, so relying on one model is guaranteed to eventually fail you</li>
 </ul>
 
 </div>
@@ -14917,19 +14873,10 @@ $X_1, X_2 $ are independent of each other.<ul>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Scenario-2:-not-ideal">Scenario 2: not ideal<a class="anchor-link" href="#Scenario-2:-not-ideal">&#182;</a></h2><ul>
-<li>Observed outcome: $Y_i = f(X_1, X_2, \psi) + \tau W(X_1, X_2, \epsilon) $</li>
-<li>$X_1, X_2$ are observed</li>
-<li>$\psi, \epsilon$ are not observed, but <em>are correlated</em></li>
-<li>Therefore, variation in treatment and the outcome conditional on 
-$X_1, X_2 $ are <em>not</em> independent of each other.<ul>
-<li>aka cov$(Y | X_1, X_2,  , W|X_1,X_2) \neq 0$</li>
-</ul>
-</li>
-<li>Then conditioning on $X_1, X_2$ yields a biased estimate if $\tau$<ul>
-<li>Bias depends on how correlated $\psi, \epsilon$ are</li>
-</ul>
-</li>
+<h2 id="Review-on-what-an-estimate-of-$%5Cbeta$-is">Review on what an estimate of $\beta$ is<a class="anchor-link" href="#Review-on-what-an-estimate-of-$%5Cbeta$-is">&#182;</a></h2><ul>
+<li>$\hat{\beta} = \beta + \text{(Selection Bias)} + \text{(Model Misspecification Bias)}$</li>
+<li>Selection Bias is addressed by assuming we have satisfied the assumptions for a causal interpretation</li>
+<li>Model Misspecification Bias is addressed by robustness checks</li>
 </ul>
 
 </div>
@@ -14942,10 +14889,12 @@ $X_1, X_2 $ are <em>not</em> independent of each other.<ul>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="So-what-happens-in-the-not-ideal-scenario?">So what happens in the not ideal scenario?<a class="anchor-link" href="#So-what-happens-in-the-not-ideal-scenario?">&#182;</a></h2><ul>
-<li>You will still get an estimate for $\tau$, but it will be biased.</li>
-<li>Recall this  $\psi, \epsilon$ are not observed, but are correlated with each other.</li>
-<li>You cannot identify what portion for $\hat{\tau}$ is due to the true treatment effect $\tau$, and what is due to $\psi$ or $\epsilon$.</li>
+<h2 id="Bootstrapping">Bootstrapping<a class="anchor-link" href="#Bootstrapping">&#182;</a></h2><ul>
+<li>What happens if the estimator is consistent, but we cannot figure out how the estimator is distributed?</li>
+<li>Or, if we do not have a large enough sample size for asymptotic properties to kick in.</li>
+<li>Let’s numerically calculate how the estimator is distributed.</li>
+<li>Recall that the distribution is interpreted as what the estimate would be if we redrew data.</li>
+<li>Bootstrapping assumes that the data we have $X$ is sufficient to know what a redrawn dataset looks like.</li>
 </ul>
 
 </div>
@@ -14958,158 +14907,23 @@ $X_1, X_2 $ are <em>not</em> independent of each other.<ul>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="How-do-we-know-if-we-are-in-the-ideal-or-not-ideal-scenario?">How do we know if we are in the ideal or not ideal scenario?<a class="anchor-link" href="#How-do-we-know-if-we-are-in-the-ideal-or-not-ideal-scenario?">&#182;</a></h2><ul>
-<li>You don’t know.</li>
-<li>Whether the unconfounded assumption is met depends on whether the unobserved  $\psi, \epsilon$ are correlated. But  $\psi, \epsilon$ are unob<em>erved by definition</em></li>
-<li>So what do we do?</li>
-<li>We rely on our knowledge of the causal inference problem so that we can safely assume that  $\psi, \epsilon$ are not correlated.</li>
-<li>We can also gather suggestive evidence that unconfoundedness is true.</li>
+<h2 id="Bootstrap-setup">Bootstrap setup<a class="anchor-link" href="#Bootstrap-setup">&#182;</a></h2><ul>
+<li>$Y = \beta X + \epsilon $</li>
+<li>We want to get a bootstrap estimate for the variance of $\beta$, and we have pairs $(y_1, x_1), (y_2, x_2), ... (y_N, x_N)$.</li>
+<li><strong>Non-parametric bootstrap:</strong></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Valid-causal-inference-relies-on-having-the-%E2%80%9Cperfect%E2%80%9D-but-%E2%80%9Cimperfect%E2%80%9D-prediction-problem">Valid causal inference relies on having the &#8220;perfect&#8221; but &#8220;imperfect&#8221; prediction problem<a class="anchor-link" href="#Valid-causal-inference-relies-on-having-the-%E2%80%9Cperfect%E2%80%9D-but-%E2%80%9Cimperfect%E2%80%9D-prediction-problem">&#182;</a></h2><ul>
-<li>Observed outcome: $Y_i = f(X_1, X_2, \psi) + \tau W(X_1, X_2, \epsilon) $</li>
-<li>Imagine if you observed $X_1, X_2, \epsilon$ and $\psi$ , so you could perfectly predict $Y$ and $W$ . Can you estimate $\tau$?</li>
-<li>No – because you cannot figure out how much of $Y$  is due to $f()$ and 
-due to $ \tau W()$</li>
-<li>In other words, there is no variation in treatment and the outcome 
-conditional on $X_1,X_2$. So there is no variation to compare to estimate 
-$\tau$.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Randomized-control-trials-/-Experiments-/-AB-tests">Randomized control trials / Experiments / AB tests<a class="anchor-link" href="#Randomized-control-trials-/-Experiments-/-AB-tests">&#182;</a></h2><ul>
-<li>When treatment is unconditionally random, then the unconfoundedness assumption is automatically satisfied.</li>
-<li>This means a t-test is an unbiased estimate, but controlling for features $X$ results in a more precise estimate.<ul>
-<li>This is because a t-test ignores variation correlated with $X$</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Three-necessary-assumptions-for-valid-causal-inference---SUTVA">Three necessary assumptions for valid causal inference - SUTVA<a class="anchor-link" href="#Three-necessary-assumptions-for-valid-causal-inference---SUTVA">&#182;</a></h2><ol>
-<li>Stable unit treatment value assumption: control units do not influence treatment units.</li>
+<ol>
+<li>Resample $N$ pairs from your sample with replacement $S$ times</li>
+<li>For each bootstrap $s \in S$, calculate $\hat{\beta}_s$</li>
+<li>Use the variance of $\hat{\beta}_1, \hat{\beta}_2, ... \hat{\beta}_S$ for the variance of $\hat{\beta}$</li>
 </ol>
 <ul>
-<li>A violation of this would be college-goers help non-college-goers get higher paying jobs</li>
-<li>We can only test this if we observe how treatment and control observations are connected. (Network data)</li>
-<li>In practice, this is usually assumed away because of how difficult it is to get network data</li>
+<li><strong>Parametric bootstrap:</strong></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Estimating-treatment-effects-using-matching">Estimating treatment effects using matching<a class="anchor-link" href="#Estimating-treatment-effects-using-matching">&#182;</a></h2><ul>
-<li>We can use the unconfoundedness assumption for causal inference. </li>
-<li>Intuitively: Let’s find treatment accounts and control accounts that 
-have the same $X$ values. Using the unconfoundedness assumption, 
-conditional on having same $X$ values, treatment is random.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Exact-and-KNN-Matching-Examples">Exact and KNN Matching Examples<a class="anchor-link" href="#Exact-and-KNN-Matching-Examples">&#182;</a></h2><ul>
-<li>For example, suppose we only have one feature $ X \sim U[1,4]$</li>
-<li>Exact Matching: We would find treatment and control accounts that have the same value of $X$. You assume that accounts with the same value of $X$ are randomly assigned treatment status.</li>
-<li>KNN Matching: Instead of having the exact value of X, we could match treatment and control accounts that have similar values of X.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Matching-leads-to-the-curse-of-dimensionality">Matching leads to the curse of dimensionality<a class="anchor-link" href="#Matching-leads-to-the-curse-of-dimensionality">&#182;</a></h2><ul>
-<li>But what if we have a lot of pre-treatment features $X$? </li>
-<li>For example, suppose we have ten pre-treatment features, each taking a value of 1,2,3,or 4. Then we have 410 = 1,048,576 possible combinations. </li>
-<li>We can’t practically find exact, or approximate, matches across a lot of $X$. This is a dimensionality problem</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Propensity-Score-Matching">Propensity Score Matching<a class="anchor-link" href="#Propensity-Score-Matching">&#182;</a></h2><ul>
-<li>Rosenbaum and Rubin (1983)$^1$ find that instead of matching on each value for each $X$, we can match on one feature instead. </li>
-<li>Match on the predicted probability of treatment, $\hat{p}(X_i)$ known as the propensity score.<ul>
-<li>Propensity score model can be trained from an ML model, as long as you have the treatment label information</li>
-</ul>
-</li>
-<li>Intuitively, conditional on the propensity score, treatment status is random. This uses the unconfoundedness assumption. </li>
-<li>For example, you find a treatment unit with  $\hat{p}(X_i) = 0.50$ and a control unit with  $\hat{p}(X_i) = 0.50$ . For these units, whether they are  in treatment or control is random, given that they have the same $\hat{p}(X_i) = 0.50$</li>
-</ul>
-<p>$^1$ Rosenbaum, P. and Rubin, D. 1983. “The central role of the propensity score in observational studies for causal effects.” 
-Biometrika. Vol 70-1</p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Three-necessary-assumptions-for-valid-causal-inference---Overlap">Three necessary assumptions for valid causal inference - Overlap<a class="anchor-link" href="#Three-necessary-assumptions-for-valid-causal-inference---Overlap">&#182;</a></h2><ol>
-<li>Overlap assumption: we can find control and treatment accounts with similar propensity score $\hat{p}(X_i)$.</li>
+<ol>
+<li>Calculate the joint distribution of $y | x \sim F(x, \theta)$</li>
+<li>Draw $S$ pairs from $F(x,\theta)$, and do the same as 2. and 3. from the non-parametric bootstrap</li>
 </ol>
-<ul>
-<li>This one we can verify if we have the true propensity score. We can plot the distribution of propensity scores for treatment and control groups, and see if there is reasonable overlap. </li>
-</ul>
 
 </div>
 </div>
@@ -15121,90 +14935,19 @@ Biometrika. Vol 70-1</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Ideal-Scenario">Ideal Scenario<a class="anchor-link" href="#Ideal-Scenario">&#182;</a></h2><p><img src="Figures/Foundation_Figure1.png" alt="Image"></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Not-Ideal-Scenario">Not Ideal Scenario<a class="anchor-link" href="#Not-Ideal-Scenario">&#182;</a></h2><p><img src="Figures/Foundation_Figure2.png" alt="Image"></p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Propensity-based-models-are-the-most-common-models">Propensity-based models are the most common models<a class="anchor-link" href="#Propensity-based-models-are-the-most-common-models">&#182;</a></h2><ul>
-<li>Many causal models are versions of propensity score matching:<ul>
-<li>Ordinary least squares (OLS)</li>
-<li>Propensity Binning with Regression adjustment</li>
-<li>Inverse propensity weighting</li>
-<li>Double machine learning</li>
+<h2 id="You-can-bootstrap-more-than-just-variances">You can bootstrap more than just variances<a class="anchor-link" href="#You-can-bootstrap-more-than-just-variances">&#182;</a></h2><ul>
+<li>For any given bootstrap $s$, you can calculate all sort of statistics from 
+$Y_s = \beta_s X_s + \epsilon_s$<ul>
+<li>The p-value, standard error, confidence interval of $\beta_s$</li>
+<li>Metrics of the regression like: F-statistic, $R^2$, or RMSE</li>
 </ul>
 </li>
-<li>They all rely on the same assumptions.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Example-with-Simulated-Data">Example with Simulated Data<a class="anchor-link" href="#Example-with-Simulated-Data">&#182;</a></h2><ul>
-<li><p>Jupyter Notebook link <a href="https://github.com/shoepaladin/causalinference_crashcourse/blob/main/Notebooks/1%20Foundations.ipynb">here</a></p>
+<li><p>As $S \rightarrow \infty$, the variance of bootstrap statistics approaches the truth.</p>
 </li>
-<li><p>To make sure we can tell whether the average treatment effect estimate is correct, we will use fake data.</p>
+<li><p>How many we do depends on the question we want to answer. More bootstraps gives us more precision.</p>
 </li>
-<li>We will setup our fake data, and show the bias under different causal models and whether the assumptions for causal inference are met.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Setup-with-fake-data">Setup with fake data<a class="anchor-link" href="#Setup-with-fake-data">&#182;</a></h2><ul>
-<li>We have four iid features, $x_1, x_2, x_3,$ and $x_4$ from normal distributions.</li>
-<li>The observed outcome is:</li>
-<li>$Y = f(x_1,x_2,x_3,x_4,\psi) + \tau W(x_1,x_2,x_3,x_4, \epsilon)$<ul>
-<li>Where $(\psi, \epsilon)$ are independent.</li>
+<li>As a general practice, $S$ should be large enough that the bootstrapped metric is stable enough.<ul>
+<li>Andrews and Buchinsky (2000); Cameron and Trivedi (2005) give us context dependent recommendations.</li>
 </ul>
 </li>
 </ul>
@@ -15219,83 +14962,10 @@ Biometrika. Vol 70-1</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="We-study-three-scenarios">We study three scenarios<a class="anchor-link" href="#We-study-three-scenarios">&#182;</a></h2><ul>
-<li>(Ideal scenario) we observed $x_1, x_2, x_3,x_4$</li>
-<li>(Unconfoundedness assumption violated) We only observe $x_1, x_2, x_3$ and do not observe $x_4$</li>
-<li>(Overlap assumption violated) We observe $x_1, x_2, x_3,x_4$, but control units with certain $\hat{p}($x_1, x_2, x_3,x_4$)$ values are missing</li>
+<h2 id="Final-warning-about-bootstraps">Final warning about bootstraps<a class="anchor-link" href="#Final-warning-about-bootstraps">&#182;</a></h2><ul>
+<li>Bootstrapping only works if your estimator is consistent. An estimator is useless for inference if it is not consistent. </li>
+<li>For example, you can train an ML model to predict $Y$ based on $X \in R$ and $W={0,1}$., then use $\hat{Y}(X,W=1)$ and $\hat{Y}(X,W=0)$. But unless you can show that $\hat{Y}(X,W=1) - \hat{Y}(X,W=0)$ converges to the true treatment effect, then bootstrapping will not let you conduct proper inference.</li>
 </ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="We-study-four-models">We study four models<a class="anchor-link" href="#We-study-four-models">&#182;</a></h2><ul>
-<li>We estimate ATE with four different causal models:<ol>
-<li>OLS</li>
-<li>Propensity Binning with Regression adjustment </li>
-<li>Double machine learning - Partial Linear Model</li>
-<li>Double machine learning - Interactive Regression Model</li>
-</ol>
-</li>
-<li>Let’s skip the model definitions for now. Theoretically they should give the same results; but estimates will vary over context.</li>
-<li>In each model, we condition on $x_1, x_2, x_3,x_4$ and $x_1^2, x_2^2, x_3^2,x_4^2$ flexibility. We could condition on even more transformations of 
-for additional flexibility</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Bias-in-ATE-Estimate-across-five-models-and-three-scenarios">Bias in ATE Estimate across five models and three scenarios<a class="anchor-link" href="#Bias-in-ATE-Estimate-across-five-models-and-three-scenarios">&#182;</a></h2><ul>
-<li>Showing the average bias $= (\tau - \hat{\tau})$ across 500 simulated datasets. For reference, $\tau=5$ in each simulation.</li>
-</ul>
-<table>
-<thead><tr>
-<th></th>
-<th>Ideal Scenario</th>
-<th>Unconfoundedness Violated</th>
-<th>Overlap Violated</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OLS</td>
-<td>0.003</td>
-<td>0.003</td>
-<td>0.722</td>
-</tr>
-<tr>
-<td>Propensity Binning with Regression Adjustment</td>
-<td>-0.62</td>
-<td>0.115</td>
-<td>-1.722</td>
-</tr>
-<tr>
-<td>DML - Partial Linear</td>
-<td>0.040</td>
-<td>0.248</td>
-<td>0.909</td>
-</tr>
-<tr>
-<td>DML - Interactive Regression</td>
-<td>0.036</td>
-<td>0.292</td>
-<td>2.186</td>
-</tr>
-</tbody>
-</table>
 
 </div>
 </div>
@@ -15308,13 +14978,10 @@ for additional flexibility</li>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><ul>
-<li>This presentation covered some fundamentals for causal inference:<ul>
-<li>The fundamental causal inference problem</li>
-<li>Assumptions for unbiased estimates</li>
-<li>Working example</li>
-</ul>
-</li>
-<li>Please let me know what else interests you!</li>
+<li>We have shown that statistical theorems are necessary to conduct inference for estimates</li>
+<li>Statistically significant estimates do not mean you have a causal estimate</li>
+<li>Model misspecification biases</li>
+<li>Recommendations for understanding model misspecification biases and bootstrapping</li>
 </ul>
 
 </div>
@@ -15338,14 +15005,100 @@ for additional flexibility</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Details-on-Modeling-Approaches">Details on Modeling Approaches<a class="anchor-link" href="#Details-on-Modeling-Approaches">&#182;</a></h2><ul>
-<li>The DML-IRM and IPW approaches exclude observations with estimated propensity scores below 0.001 and 0.999 to avoid dividing by a small number, which would inflate estimates.</li>
-<li>Except for OLS, all nuisance functions to predict the outcome and treatment status are estimated using four-fold cross-validated LASSO and Logistic regressions.</li>
+<h1 id="Appendix-Slides---Variance-of-Estimates">Appendix Slides - Variance of Estimates<a class="anchor-link" href="#Appendix-Slides---Variance-of-Estimates">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Using-the-variance">Using the variance<a class="anchor-link" href="#Using-the-variance">&#182;</a></h2>$$ \sqrt{N}(\hat{\beta} - \beta) \rightarrow^d N(0, \Sigma) $$<ul>
+<li>The diagonals $\sigma_{1,1}, \sigma_{2,2}, ..., \sigma_{K,K}$ of $\Sigma$ are the variances of $\hat{\beta}_1, \hat{\beta}_2, ... ,\hat{\beta}_K$. Then the standard error is $se_k = \sqrt{\sigma_{k,k}}$. You then use the standard error to construct your confidence interval</li>
+<li>If you want to combine estimates, you need to use the covariance as well.<ul>
+<li>$var(\hat{\beta}_1 + \hat{\beta}_2) = \sigma_{1,1} + \sigma_{2,2} + 2\sigma_{1,2}$.</li>
+</ul>
+</li>
+<li>If you want to know the variance of $g(\beta)$, then you need the Delta Method.
+ • $\sqrt{N}( g(\hat{\beta}) - g(\beta)) \rightarrow^d N(0, \Sigma[g'(\beta)]^2)$</li>
+<li>Want to do both? See the next slide.</li>
 </ul>
 
 </div>
 </div>
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Standard-errors-from-applying-transformations-of-multiple-parameters">Standard errors from applying transformations of multiple parameters<a class="anchor-link" href="#Standard-errors-from-applying-transformations-of-multiple-parameters">&#182;</a></h2><ul>
+<li>Standard errors from applying multiple transformations<ul>
+<li><a href="https://www.stata.com/support/faqs/statistics/compute-standard-errorswith-margins/">https://www.stata.com/support/faqs/statistics/compute-standard-errorswith-margins/</a></li>
+</ul>
+</li>
+<li>Another way this is used is to get the standard errors of a prediction, for example, $\hat{y} = \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2$<ul>
+<li><a href="https://stats.idre.ucla.edu/r/faq/how-can-i-estimate-the-standard-error-oftransformed-regression-parameters-in-r-using-the-delta-method/">https://stats.idre.ucla.edu/r/faq/how-can-i-estimate-the-standard-error-oftransformed-regression-parameters-in-r-using-the-delta-method/</a></li>
+<li>Note that this is not the prediction interval which takes the error into account, only the confidence interval of the prediction.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Appendix-Slides-%E2%80%93-Model-Misspecification-with-Propensity-Score-Matching">Appendix Slides &#8211; Model Misspecification with Propensity Score Matching<a class="anchor-link" href="#Appendix-Slides-%E2%80%93-Model-Misspecification-with-Propensity-Score-Matching">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Model-misspecification-in-a-propensity-matching-model">Model misspecification in a propensity matching model<a class="anchor-link" href="#Model-misspecification-in-a-propensity-matching-model">&#182;</a></h2><ul>
+<li>High-level design for propensity score matching:<ol>
+<li>Estimate a propensity score for all observations, $P(X_i)$</li>
+<li>Match treatment and control units in $S$ groups with similar  $P(X_i)$ values</li>
+<li>Find the differences within each $s \in S$ and aggregate them to estimate ATE/ATET</li>
+</ol>
+</li>
+<li>Ideally,  $P(X_i)$ represents the true propensity score. But if  $P(X_i)$ is wrong, then the ATE/ATET estimate can still be wrong, but still be statistically significant.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div></section></section>
 </div>
 </div>
