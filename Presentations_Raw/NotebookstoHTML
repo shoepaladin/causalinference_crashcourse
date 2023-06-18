@@ -2,10 +2,10 @@
 
 cd .\GitHub\causalinference_crashcourse\Presentations_Raw\
 
-jupyter nbconvert --to slides --post serve "1 Foundations 2023may28 update.ipynb"
-jupyter nbconvert --to slides --post serve "2 Causal Models 2023may30 update.ipynb"
-jupyter nbconvert --to slides --post serve "3 Inference 2023jun05 update.ipynb"
-jupyter nbconvert --to slides --post serve "5 HTE Models 2023may27 update.ipynb"
-jupyter nbconvert --to slides --post serve "9 Arguable Validation 2023jun06 update.ipynb"
+jupyter nbconvert --to slides --post serve "1 Foundations 20230528 update.ipynb"
+jupyter nbconvert --to slides --post serve "2 Causal Models 20230530 update.ipynb"
+jupyter nbconvert --to slides --post serve "3 Inference 20230605 update.ipynb"
+jupyter nbconvert --to slides --post serve "5 HTE Models 20230527 update.ipynb"
+jupyter nbconvert --to slides --post serve "9 Arguable Validation 20230606 update.ipynb"
 
 
