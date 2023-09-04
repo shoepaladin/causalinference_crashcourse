@@ -1,12 +1,20 @@
-# ML Info and Causality Review for Economists
+# Various Notebooks
+Here I have listed various notebooks, each making a specific point about causal inference. They are currently not organized, but I hope to organize them into the following themes:
+* Causal ML DML and Otherwise;
+* Experimental Analysis and Deep Diving Treatment Effects;
+* General Points about Estimating Treatment Effect Models; and
+* How Data Cleaning and Manipulation Affect Results
 
-The material is intended for economists or scientists familiar with causal inference. 
-Please feel free to comment and add resources. For the sake of convenience, please do not remove anything. There is a section of “Old Material”l at the bottom for this. Thanks!
+
+
+<hr style="border:5px solid red">
+**Note that the below information is not updated regularly, and I cannot guarantee that links still work.**
+# ML Info and Causality Review
 
 ## Causality Review
 Causal problems can be reframed around the problem of not observing the potential outcomes of a given unit under treatment and control status. That is, we only see their outcome under treatment or control status, but not both. Learn more about potential outcomes [here](https://youtu.be/q8x9aetyok0) and the fundamental problem of causal inference [here](https://youtu.be/RGvI0uVMgtw).
 
-For a review of the conditional independence assumption AKA unconfoundedness, you can watch [these for an intuitive](https://www.youtube.com/watch?v=XJrTIsy_2Mk&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=61) explanation. All the models covered in this Quip that rely on this can be first simply understood as propensity score matching based model, which you can review [here](https://www.youtube.com/watch?v=s1YpulokvEQ&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=68), or [here too](https://www.youtube.com/watch?v=h0UU6trKR0E&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=73), or [even here too](https://www.youtube.com/watch?v=KlL2EVLnLX8). and why you [should never do it](https://www.youtube.com/watch?v=rBv39pK1iEs). Here is a [paper](https://www.kellogg.northwestern.edu/faculty/research/researchdetail?guid=aabd515d-67f4-11eb-a9b5-0242ac160003) that also finds limitations of propensity-based models, and that running experiments should continue to be the gold standard for inference.
+For a review of the conditional independence assumption AKA unconfoundedness, you can watch [these for an intuitive](https://www.youtube.com/watch?v=XJrTIsy_2Mk&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz&index=61) explanation. Here is a [paper](https://www.kellogg.northwestern.edu/faculty/research/researchdetail?guid=aabd515d-67f4-11eb-a9b5-0242ac160003) that also finds limitations of propensity-based models, and that running experiments should continue to be the gold standard for inference.
 
 2017 AEA Continuing Education Webcast on [“Mastering Mostly Harmless”](https://www.aeaweb.org/conference/cont-ed/2017-webcasts), with a summary of each video:
 1. Causality, Potential Outcomes, and the Estimation of Treatment Effects in Randomized Studies (Abadie), including Fisher’s Exact Test
@@ -18,7 +26,6 @@ For a review of the conditional independence assumption AKA unconfoundedness, yo
 7. Regression Discontinuity (Walters)
 8. Structural Selection Models (Walters)
 9. Bayesian and ML (Walters) - Note this is “ML-lite” for econometrics, mostly just Lasso 
-
 
 
 
@@ -55,27 +62,6 @@ There are two papers, which you should read sequentially. First is the [Causal F
 
 [Farrell et al](https://arxiv.org/abs/1809.09953). have a paper on this, where the main contribution is the inference result.
 
-
-## General ML
-
-### Machine Learning for Economists
-This is a [comprehensive lecture](https://www.aeaweb.org/conference/cont-ed/2018-webcasts)series by Susan Athey and Guido Imbens. It contains videos, lecture slides, codes and tutorial links. The topics covered are: 
-
-1. Introduction to Machine Learning Concepts
-2. Prediction Policy Problems
-3. Causal Inference: Average Treatment Effects
-4. Causal Inference: Heterogeneous Treatment Effects
-5. Causal Inference: Heterogeneous Treatment Effects, Supplementary Analysis
-6. Causal Inference: Optimal Policies and Bandits
-7. Deep Learning Methods
-8. Classification
-9. Matrix Completion Methods for Causal Panel Data Models
-
-
-### Google’s ML Crash Course
-
-This is designed for ML engineerings, but the beginning “ML Concepts” does a good job covering the high level material if you don’t have time to do the reason resources [below.](https://developers.google.com/machine-learning/crash-course/ml-intro)
-
 ### Elements of Statistical Learning Book
 
 You should start with either the _Element of Statistical Learning Book_ or _Introduction to Statistical Learning_ before diving into the other ML topics listed below. These will give you a strong foundation to build upon the specialized topics. If you jump right into the deep topics, you will be lost in terms of notation and the big picture.
@@ -84,7 +70,6 @@ Available at [here](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).
 I would start with Chapters 3 and 4 to see how ML views OLS and linear regressions, and jump to Chapter 7 to understand cross-validation. You’ll see a lot of people using random forests (Chapter 15 and 16) and boosted regressions (Chapter 10). 
 
 ### Introduction to Statistical Learning
-
 Available at: [here](https://static1.squarespace.com/static/5ff2adbe3fe4fe33db902812/t/6062a083acbfe82c7195b27d/1617076404560/ISLR%2BSeventh%2BPrinting.pdf).
 Sections 2.2 and 3.3.2 have brief sections on prediction intervals, and why we should care about them instead of confidence intervals.
 
