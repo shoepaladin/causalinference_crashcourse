@@ -1,0 +1,57 @@
+{#-
+  Custom reveal.js slide template for the Causal Inference Crash Course.
+  Extends nbconvert's built-in `reveal` template and:
+    * injects the custom.css design system (wins over the reveal theme),
+    * drops the requirejs / jquery / mermaid CDN loaders,
+    * loads reveal.js, the notes plugin, and MathJax 3 via marker comments
+      that build_slides.py replaces with the vendored, inlined asset contents
+      so the exported HTML is fully self-contained and works offline.
+-#}
+{%- extends 'reveal/index.html.j2' -%}
+
+{# Remove the jquery / requirejs / mermaid CDN <script> tags from <head>. #}
+{% block html_head_js %}
+{% endblock html_head_js %}
+
+{# MathJax 3 (SVG output => no external font files => offline-safe). #}
+{% block html_head_js_mathjax %}
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global', scale: 1.05 },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<!--__MATHJAX_JS__-->
+{% endblock html_head_js_mathjax %}
+
+{# custom.css is injected by build_slides.py *after* the reveal theme <link>
+   (which nbconvert emits outside the head block) so our rules always win. #}
+{% block html_head_css %}
+{% endblock html_head_css %}
+
+{# Plain reveal.js init (no requirejs). Assets inlined by build_slides.py. #}
+{% block footer_js %}
+<!--__REVEAL_JS__-->
+<!--__NOTES_JS__-->
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    hash: true,
+    center: false,
+    transition: "{{ resources.reveal.transition | default('slide', true) }}",
+    slideNumber: "c/t",
+    width: {{ resources.reveal.width | default(1150, true) }},
+    height: {{ resources.reveal.height | default(740, true) }},
+    margin: 0.06,
+    minScale: 0.2,
+    maxScale: 1.8,
+    plugins: [RevealNotes]
+  });
+</script>
+{% endblock footer_js %}

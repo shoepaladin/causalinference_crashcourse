@@ -1,0 +1,4 @@
+# Python tooling for building the pretty slide decks (see build_slides.py).
+# Install with:  pip install -r requirements-slides.txt
+nbconvert>=7.0
+jupyterlab>=4.0
