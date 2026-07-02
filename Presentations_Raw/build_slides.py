@@ -46,6 +46,7 @@ SOURCE_DECKS = [
     "5 HTE Models 20230527 update.ipynb",
     "5 HTE Models 20230615 update.ipynb",
     "9 Arguable Validation 20230606 update.ipynb",
+    "7 Regression Discontinuity 20260702 update.ipynb",
 ]
 
 
