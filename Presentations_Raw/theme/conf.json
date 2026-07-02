@@ -1,0 +1,6 @@
+{
+  "base_template": "reveal",
+  "mimetypes": {
+    "text/html": true
+  }
+}

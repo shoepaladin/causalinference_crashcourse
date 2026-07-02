@@ -1,0 +1,10 @@
+{
+  "name": "causal-inference-slides-assets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vendored reveal.js + MathJax assets, inlined into the exported slide decks by build_slides.py so the HTML is fully self-contained/offline.",
+  "dependencies": {
+    "mathjax": "3.2.2",
+    "reveal.js": "4.6.1"
+  }
+}

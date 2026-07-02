@@ -3,3 +3,8 @@ OtherMaterial/Data Aggregation and Statistical Power.ipynb
 *.pptx
 OtherMaterial/.claude/worktrees/charming-heyrovsky-2a6871/
 OtherMaterial/.claude/settings.json
+
+# Slide build tooling (see Presentations_Raw/build_slides.py)
+Presentations_Raw/node_modules/
+Presentations_Raw/package-lock.json
+Presentations_Raw/.__build_*.ipynb

@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Causal Inference Crash Course — custom reveal.js design system
+   Loaded after the reveal "white" theme and the JupyterLab base CSS, so these
+   rules win. Goal: clean, readable, modern academic slides.
+   Tweak the variables in :root to re-skin every deck at once.
+   ========================================================================== */
+
+:root {
+  --ci-bg:        #fbfcfe;   /* slide background            */
+  --ci-ink:       #17222e;   /* body text                   */
+  --ci-muted:     #5b6b7a;   /* secondary text / footer     */
+  --ci-accent:    #0e7490;   /* primary accent (teal)       */
+  --ci-accent-2:  #0f766e;   /* heading accent (deep teal)  */
+  --ci-line:      #dbe4ec;   /* hairlines / borders         */
+  --ci-zebra:     #f1f6fa;   /* table zebra stripe          */
+  --ci-code-bg:   #f4f7fa;   /* inline/code background      */
+  --ci-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ci-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}
+
+/* ----- Reveal core variables ------------------------------------------- */
+.reveal {
+  --r-background-color: var(--ci-bg);
+  --r-main-font: var(--ci-sans);
+  --r-main-color: var(--ci-ink);
+  --r-heading-font: var(--ci-sans);
+  --r-heading-color: var(--ci-accent-2);
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 700;
+  --r-link-color: var(--ci-accent);
+  --r-link-color-hover: var(--ci-accent-2);
+  --r-link-color-dark: var(--ci-accent-2);
+  font-family: var(--ci-sans);
+  color: var(--ci-ink);
+  font-size: 30px;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+.reveal-viewport { background: var(--ci-bg); }
+
+/* ----- Neutralise the JupyterLab notebook chrome ----------------------- */
+.jp-Notebook, .jp-Cell, .jp-Cell-inputWrapper, .jp-InputArea,
+.jp-RenderedHTMLCommon, .jp-MarkdownOutput, .jp-RenderedMarkdown {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-size: inherit !important;
+  color: inherit !important;
+}
+.jp-InputPrompt, .jp-OutputPrompt, .jp-Collapser, .jp-Placeholder,
+.jp-Cell-inputCollapser, .jp-Cell-outputCollapser { display: none !important; }
+.jp-RenderedMarkdown { font-family: var(--ci-sans); }
+
+/* ----- Slide layout ---------------------------------------------------- */
+.reveal .slides { text-align: left; }
+.reveal .slides > section,
+.reveal .slides > section > section {
+  padding: 8px 40px 40px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ----- Headings -------------------------------------------------------- */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--ci-sans);
+  color: var(--ci-accent-2);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  margin: 0 0 0.5em;
+}
+.reveal h1 { font-size: 2.0em; }
+.reveal h2 {                       /* the per-slide title */
+  font-size: 1.32em;
+  padding-bottom: 0.28em;
+  margin-bottom: 0.7em;
+  border-bottom: 3px solid var(--ci-accent);
+}
+.reveal h3 { font-size: 1.12em; color: var(--ci-accent); }
+
+/* ----- Lists ----------------------------------------------------------- */
+.reveal ul, .reveal ol { display: block; margin: 0 0 0.4em 1.1em; }
+/* Kill the JupyterLab / browser list markers so only our ::before shows. */
+.reveal ul, .reveal .jp-RenderedMarkdown ul { list-style: none !important; }
+.reveal ul > li { position: relative; padding-left: 0.2em; list-style: none !important; }
+.reveal ul > li::marker { content: ""; }
+.reveal ul > li::before {
+  content: "";
+  position: absolute;
+  left: -0.85em;
+  top: 0.62em;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--ci-accent);
+}
+.reveal li { margin: 0.24em 0; line-height: 1.4; }
+.reveal li > ul, .reveal li > ol { margin-top: 0.24em; margin-bottom: 0.24em; }
+.reveal ul ul > li::before { background: transparent; border: 1.5px solid var(--ci-accent); }
+.reveal ul ul ul > li::before { background: var(--ci-muted); border: 0; width: 0.32em; height: 0.32em; }
+.reveal strong { color: var(--ci-accent-2); font-weight: 700; }
+.reveal em { color: inherit; }
+
+/* ----- Links ----------------------------------------------------------- */
+.reveal a { color: var(--ci-accent); text-decoration: none; border-bottom: 1px solid rgba(14,116,144,0.35); }
+.reveal a:hover { color: var(--ci-accent-2); border-bottom-color: var(--ci-accent-2); }
+
+/* ----- Tables ---------------------------------------------------------- */
+.reveal table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0.6em auto;
+  font-size: 0.82em;
+  width: auto;
+  max-width: 100%;
+  border: 1px solid var(--ci-line);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(16,42,67,0.06);
+}
+.reveal table th {
+  background: var(--ci-accent-2);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  border: 0;
+  padding: 0.5em 0.85em;
+}
+.reveal table td {
+  border: 0;
+  border-top: 1px solid var(--ci-line);
+  padding: 0.45em 0.85em;
+  vertical-align: middle;
+}
+.reveal table tbody tr:nth-child(even) td,
+.reveal table tr:nth-child(even) td { background: var(--ci-zebra); }
+.reveal table td:not(:first-child) { text-align: center; }
+.reveal table td:first-child { font-weight: 600; color: var(--ci-ink); }
+
+/* ----- Figures --------------------------------------------------------- */
+.reveal img {
+  display: block;
+  margin: 0.5em auto;
+  max-width: 92%;
+  max-height: 62vh;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--ci-line);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 6px 22px rgba(16,42,67,0.10);
+}
+
+/* ----- Code ------------------------------------------------------------ */
+.reveal code {
+  font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  background: var(--ci-code-bg);
+  color: #0b3a4a;
+  padding: 0.08em 0.35em;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+.reveal pre {
+  width: 100%;
+  box-shadow: 0 3px 14px rgba(16,42,67,0.10);
+  border: 1px solid var(--ci-line);
+  border-radius: 10px;
+  font-size: 0.6em;
+}
+.reveal pre code { background: #f8fafc; padding: 0.8em 1em; border-radius: 10px; max-height: 62vh; }
+
+/* ----- Math ------------------------------------------------------------ */
+.reveal mjx-container { color: var(--ci-ink); }
+.reveal mjx-container[display="true"] { margin: 0.5em 0; }
+
+/* ----- Footnote-ish trailing references (lines starting with a caret) --- */
+.reveal sup { color: var(--ci-accent); font-size: 0.7em; }
+
+/* ==========================================================================
+   Title / section slides
+   The first slide of every deck (and any slide whose only heading is an <h1>)
+   becomes a centred hero slide with an accent rule under the title.
+   ========================================================================== */
+.reveal .slides > section:first-of-type {
+  text-align: center;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(14,116,144,0.10), transparent 70%),
+    var(--ci-bg);
+}
+.reveal .slides > section:first-of-type h1 {
+  font-size: 2.5em;
+  color: var(--ci-accent-2);
+  margin-bottom: 0.15em;
+}
+.reveal .slides > section:first-of-type h2 {
+  font-size: 1.5em;
+  color: var(--ci-accent);
+  border: 0;
+  font-weight: 600;
+  margin: 0.1em 0 0.6em;
+  padding: 0;
+}
+.reveal .slides > section:first-of-type h2::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  margin: 0.55em auto 0;
+  background: var(--ci-accent);
+  border-radius: 2px;
+}
+.reveal .slides > section:first-of-type ul { list-style: none; margin-left: 0; }
+.reveal .slides > section:first-of-type ul > li::before { display: none; }
+.reveal .slides > section:first-of-type p,
+.reveal .slides > section:first-of-type li { color: var(--ci-muted); font-size: 1.05em; }
+
+/* ----- Controls / progress accent ------------------------------------- */
+.reveal .progress { color: var(--ci-accent); height: 4px; }
+.reveal .controls { color: var(--ci-accent); }
+.reveal .slide-number {
+  background: rgba(14,116,144,0.10);
+  color: var(--ci-accent-2);
+  font-size: 15px;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+/* Keep dense slides from overflowing: allow internal scroll as a fallback. */
+.reveal .slides > section { overflow: visible; }

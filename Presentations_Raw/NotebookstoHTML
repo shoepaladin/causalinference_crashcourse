@@ -1,4 +1,14 @@
 
+# ---------------------------------------------------------------------------
+# NEW (recommended): build polished, self-contained decks into rendered/
+# See README_slides.md for details.
+#
+#   pip install -r requirements-slides.txt
+#   python build_slides.py
+#
+# ---------------------------------------------------------------------------
+# OLD process (kept for reference / comparison). Produces the plain default
+# reveal.js theme next to the notebooks:
 
 cd .\GitHub\causalinference_crashcourse\Presentations_Raw\
 
