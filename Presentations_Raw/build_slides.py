@@ -33,7 +33,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 THEME_DIR = HERE / "theme"
-OUT_DIR = HERE / "rendered"
+OUT_DIR = HERE / "Updated_v2"
 FIG_DIR = HERE / "Figures"
 NODE_MODULES = HERE / "node_modules"
 

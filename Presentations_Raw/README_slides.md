@@ -5,7 +5,7 @@ This folder now has a redesigned pipeline that turns the course notebooks into
 content — only how the slides look and how the HTML is packaged.
 
 The original `*.slides.html` exports are left in place so you can compare them
-against the new ones. The redesigned decks are written to **`rendered/`**.
+against the new ones. The redesigned decks are written to **`Updated_v2/`**.
 
 ## What changed vs. the old `jupyter nbconvert --to slides`
 
@@ -37,7 +37,7 @@ and MathJax files that get inlined into each deck).
 ## Build
 
 ```bash
-# Build every deck into rendered/
+# Build every deck into Updated_v2/
 python build_slides.py
 
 # Build a single deck
@@ -47,7 +47,7 @@ python build_slides.py "1 Foundations 20230528 update.ipynb"
 python build_slides.py --list
 ```
 
-Each run produces a single `rendered/<name>.slides.html` that opens in any
+Each run produces a single `Updated_v2/<name>.slides.html` that opens in any
 browser with no internet connection and is small enough to email or drop on a
 static host.
 
@@ -66,7 +66,7 @@ regenerate. The nbconvert template lives in `theme/index.html.j2`.
    `--embed-images`,
 3. inlines the vendored reveal.js core, the notes plugin and MathJax, and
    base64-embeds every figure, then
-4. writes the finished, self-contained deck to `rendered/`.
+4. writes the finished, self-contained deck to `Updated_v2/`.
 
 ## Notes
 
