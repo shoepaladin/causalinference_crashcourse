@@ -181,6 +181,22 @@ def inline_assets(html: str, assets: dict[str, str]) -> str:
         f'<style id="ci-custom">\n{custom_css}\n</style>',
         html, count=1)
 
+    # Give each slide <section> an id from its first heading so decks can use
+    # stable internal links like [see appendix](#/appendix-the-donut-test).
+    def _slug(text: str) -> str:
+        text = re.sub(r"<[^>]+>", "", text)          # strip inner tags
+        text = re.sub(r"&[a-z]+;", " ", text)
+        return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+    def _section_id(m: re.Match) -> str:
+        head = re.search(r"<h[123][^>]*>(.*?)</h[123]>", m.group(2), re.S)
+        if not head:
+            return m.group(0)
+        return f'{m.group(1)} id="{_slug(head.group(1))}"{m.group(2)}'
+
+    html = re.sub(r"(<section)((?:(?!<section|</section>).)*?<h[123].*?</h[123]>)",
+                  _section_id, html, flags=re.S)
+
     # marker comments -> inline <script>
     html = html.replace(
         "<!--__MATHJAX_JS__-->",
