@@ -2,3 +2,9 @@
 # Install with:  pip install -r requirements-slides.txt
 nbconvert>=7.0
 jupyterlab>=4.0
+
+# Only needed to (re)run the RD companion notebook
+# (Notebooks/7 Regression Discontinuity.ipynb) and the RD deck's figure cells'
+# MSE-optimal bandwidth line. The decks themselves build without these.
+rdrobust>=1.2
+rddensity>=2.3
