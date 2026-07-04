@@ -8,3 +8,4 @@ OtherMaterial/.claude/settings.json
 Presentations_Raw/node_modules/
 Presentations_Raw/package-lock.json
 Presentations_Raw/.__build_*.ipynb
+__pycache__/
