@@ -37,7 +37,10 @@ This covers panel methods that build a treated unit's counterfactual over time, 
 ### 7. Regression Discontinuity Models
 This covers regression discontinuity design (RDD) as a design-based approach that exploits a *local natural experiment* at a cutoff, relying on a continuity assumption rather than unconfoundedness. It covers the identifying assumption and the local estimand, sharp vs. fuzzy designs, modern estimation (local polynomials, MSE-optimal bandwidth, and robust bias-corrected inference following Calonico, Cattaneo, and Titiunik), and a validation battery (manipulation/density tests, covariate continuity, placebo cutoffs, donut, and bandwidth sensitivity). A companion simulation notebook ([Notebooks/7 Regression Discontinuity.ipynb](Notebooks/7%20Regression%20Discontinuity.ipynb)) hand-codes local-linear estimation and uses `rdrobust`/`rddensity`.
 
-### 8. Arguable Validation
+### 8. Conformal Inference
+This covers conformal inference as distribution-free, finite-sample uncertainty quantification, then specializes it to causal panels. It teaches the general method the way it is taught in the literature (split conformal, the exchangeability assumption, the marginal coverage guarantee, and the marginal-vs-conditional limitation, following Vovk et al., Lei et al., and Angelopoulos–Bates), covers what breaks exchangeability in time series and the two fixes (moving-block permutations and weighted/nonexchangeable conformal, per Chernozhukov–Wüthrich–Zhu and Barber et al.), and finishes with the causal payoff: exact, robust inference for **synthetic controls** with a single treated unit ([Chernozhukov, Wüthrich, Zhu 2021](https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1920957)). Figures are generated from a real synthetic-control fit using the `conformal_inf` API in the [statanomics](https://github.com/shoepaladin/statanomics) `panelib` library.
+
+### 9. Arguable Validation
 We consider three types of arguable validation of causal models, from placebo testing and coefficient stability via [Oster 2013](https://www.nber.org/papers/w19054), and covariate balancing.
 
 

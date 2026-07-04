@@ -48,6 +48,7 @@ SOURCE_DECKS = [
     "9 Arguable Validation 20230606 update.ipynb",
     "7 Regression Discontinuity 20260702 update.ipynb",
     "6 Panel Models 20260703 update.ipynb",
+    "8 Conformal Inference 20260704 update.ipynb",
 ]
 
 

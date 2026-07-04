@@ -19,6 +19,7 @@ design and the packaging changed.
 | 5. HTE Models (Jun) | `5 HTE Models 20230615 update.slides.html` |
 | 6. Panel Models (DiD, SC, SDID) | `6 Panel Models 20260703 update.slides.html` |
 | 7. Regression Discontinuity | `7 Regression Discontinuity 20260702 update.slides.html` |
+| 8. Conformal Inference | `8 Conformal Inference 20260704 update.slides.html` |
 | 9. Arguable Validation | `9 Arguable Validation 20230606 update.slides.html` |
 
 Navigating a deck: **arrow keys** to move, **Esc** for the overview grid,
