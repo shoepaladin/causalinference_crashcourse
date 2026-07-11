@@ -8071,7 +8071,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 <li>We will also focus on standard propensity-based models, excluding approaches such as instrumental variable and regression discontinuity.</li>
 <li>We will cover some strategies:<ul>
 <li>Placebo tests</li>
-<li>Coefficient stability following Oster (2019)</li>
+<li>Coefficient stability following Oster (2013)</li>
 <li>Feature balancing</li>
 </ul>
 </li>
@@ -8350,7 +8350,7 @@ $$ Y^{placebo}_i = \hat{\tau}^{placebo} W_i + \hat{\alpha}_1 X_i + \eta_i$$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Coefficient-stability-test-and-interpretation">Coefficient stability test and interpretation<a class="anchor-link" href="#Coefficient-stability-test-and-interpretation">¶</a></h2><ul>
 <li>“Given I can explain 99.9% of the variation $Y_i$ after controlling for $X_i$and that my estimate of is 10, how much selection bias is needed such that the incremental $X_i$ needed for me to explain 100% of the variation changes to 5?”</li>
-<li>Oster (2019) uses the omitted variable bias formula, the $R^2$ formula, and assumptions on what the selection bias might look like to answer this question. I won’t go into this test statistic (shown below) for simplicity, but will show it in action in simulations</li>
+<li>Oster (2013) uses the omitted variable bias formula, the $R^2$ formula, and assumptions on what the selection bias might look like to answer this question. I won’t go into this test statistic (shown below) for simplicity, but will show it in action in simulations</li>
 </ul>
 <p>$$\delta^* =$$
 $$ \dfrac{(\tilde{\beta} - \hat{\beta}) (\tilde{R} - \dot{R}) \hat{\sigma}^2_y \hat{\tau}_x + (\tilde{\beta} - \hat{\beta})\hat{\sigma}^2_x \hat{\tau}_x (\dot{\beta} - \tilde{\beta})^2 + 2A   }{(R_{max} - \tilde{R}) \hat{\sigma}^2_y (\dot{\beta} - \tilde{\beta})\hat{\sigma}^2_x + (\tilde{\beta} - \hat{\beta})(R_{max} - \tilde{R})\hat{\sigma}^2_y (\hat{\sigma}^2_x - \hat{\tau}_x) + A } $$</p>
@@ -8579,7 +8579,7 @@ $$x_i = \hat{\pi}_x W_i + \hat{\alpha} \hat{P}(X_i) + \epsilon_i$$</p>
 </ul>
 </li>
 <li>Coefficient Stability<ul>
-<li>Oster. (2019). “Unobservable Selection and Coefficient Stability: Theory and Evidence.” <a href="https://www.nber.org/papers/w19054">link</a>;</li>
+<li>Oster. (2013). “Unobservable Selection and Coefficient Stability: Theory and Evidence.” <a href="https://www.nber.org/papers/w19054">link</a>;</li>
 <li>Imbens. (2003). “Sensitivity to Exogeneity Assumptions in Program Evaluation.” <a href="https://scholar.harvard.edu/imbens/files/sensitivity_to_exogeneity_assumptions_in_program_evaluation.pdf">link</a></li>
 </ul>
 </li>

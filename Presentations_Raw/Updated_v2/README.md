@@ -91,7 +91,7 @@ node check_overflow.js Updated_v2/*.slides.html
 
 > **Note:** a handful of slides in the current decks had content that didn't
 > fit on one page (e.g. the "Literature Review of Related Papers" slide in
-> Arguable Validation, which cites Oster 2019). These were split into two (or
+> Arguable Validation, which cites Oster 2013). These were split into two (or
 > three) slides directly in the built `.slides.html` files, not in the source
 > `.ipynb` notebooks. If you rebuild a deck from its notebook via
 > `build_slides.py`, re-run `check_overflow.js` afterward and re-apply the
