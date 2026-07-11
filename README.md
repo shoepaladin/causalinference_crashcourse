@@ -37,7 +37,10 @@ This does a comparison to cross-sectional models described above, and summarizes
 ### 7. Regression Discontinuity Models
 This covers regression discontinuity design (RDD) as a design-based approach that exploits a *local natural experiment* at a cutoff, relying on a continuity assumption rather than unconfoundedness. It covers the identifying assumption and the local estimand, sharp vs. fuzzy designs, modern estimation (local polynomials, MSE-optimal bandwidth, and robust bias-corrected inference following Calonico, Cattaneo, and Titiunik), and a validation battery (manipulation/density tests, covariate continuity, placebo cutoffs, donut, and bandwidth sensitivity). A companion simulation notebook ([Notebooks/7 Regression Discontinuity.ipynb](Notebooks/7%20Regression%20Discontinuity.ipynb)) hand-codes local-linear estimation and uses `rdrobust`/`rddensity`.
 
-### 8. Arguable Validation
+### 8. Surrogate Models
+This covers surrogate models for estimating the effect on a *long-term* outcome before that outcome is observed, by bridging a short-run experiment through intermediate ("surrogate") outcomes. It covers the surrogate index of [Athey, Chetty, Imbens, and Kang 2019](https://www.nber.org/papers/w26463) — combining an experimental sample (treatment and surrogates observed) with an observational sample (surrogates and long-term outcome observed) — its three identifying assumptions (surrogacy, comparability, and a clean experiment), what breaks when a channel bypasses the surrogates, inference that carries the first-stage uncertainty, and practical diagnostics such as backtesting on finished experiments. A companion simulation notebook ([Notebooks/8 Surrogate Models.ipynb](Notebooks/8%20Surrogate%20Models.ipynb)) builds the estimator step by step and runs the Monte-Carlo studies behind the slides.
+
+### 9. Arguable Validation
 We consider three types of arguable validation of causal models, from placebo testing and coefficient stability via [Oster 2013](https://www.nber.org/papers/w19054), and covariate balancing.
 
 
