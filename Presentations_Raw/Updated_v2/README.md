@@ -6,7 +6,7 @@ inference decks. Each deck ships as two files:
 - **`.pdf`** — the recommended way to view/preview a deck on GitHub. GitHub
   renders PDFs inline and paginated in the repo browser, and these files are
   well under 1.2 MB, so they preview instantly (the `.slides.html` files are
-  2.5–3.7 MB each — too big for GitHub's file viewer to render, which is why
+  2.5–3.6 MB each — too big for GitHub's file viewer to render, which is why
   the PDFs exist).
 - **`.slides.html`** — the interactive reveal.js version. Opens in any
   browser with **no internet connection** (reveal.js, MathJax and every
