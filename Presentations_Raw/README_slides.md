@@ -1,11 +1,14 @@
 # Building the pretty slide decks
 
-This folder now has a redesigned pipeline that turns the course notebooks into
-**polished, self-contained reveal.js slides**. It does *not* change any slide
-content — only how the slides look and how the HTML is packaged.
+This folder has a pipeline that turns the course notebooks into **polished,
+self-contained reveal.js slides**, then exports each one to a **PDF** — that's
+the artifact actually committed to `Updated_v2/`. It does *not* change any
+slide content — only how the slides look and how they're packaged.
 
-The original `*.slides.html` exports are left in place so you can compare them
-against the new ones. The redesigned decks are written to **`Updated_v2/`**.
+(GitHub can't render the multi-MB self-contained HTML deck inline in the repo
+browser, but it does render PDFs inline and paginated, which is why PDF is
+the shipped format. The HTML is still generated as a build step — see below —
+but it's a local, gitignored intermediate, not committed.)
 
 ## What changed vs. the old `jupyter nbconvert --to slides`
 
@@ -26,51 +29,55 @@ against the new ones. The redesigned decks are written to **`Updated_v2/`**.
 # Python side (nbconvert / jupyter)
 pip install -r requirements-slides.txt
 
-# JS assets (reveal.js + MathJax) are fetched automatically by the build,
-# but you can pre-fetch them with:
+# JS side: reveal.js + MathJax (vendored, inlined) + playwright (PDF export)
 npm install
+npx playwright install chromium
 ```
 
-Requires Python 3.9+ and Node.js (for `npm`, used only to vendor the reveal.js
-and MathJax files that get inlined into each deck).
+Requires Python 3.9+ and Node.js.
 
 ## Build
 
 ```bash
-# Build every deck into Updated_v2/
-python build_slides.py
+# Rebuild every deck's PDF from its notebook (this is the standard process)
+python build_pdfs.py
 
-# Build a single deck
-python build_slides.py "1 Foundations 20230528 update.ipynb"
+# Just one deck
+python build_pdfs.py "1 Foundations 20230528 update.ipynb"
 
 # List the source decks
 python build_slides.py --list
 ```
 
-Each run produces a single `Updated_v2/<name>.slides.html` that opens in any
-browser with no internet connection and is small enough to email or drop on a
-static host.
+Each run produces `Updated_v2/<name>.pdf` — commit that. It also leaves a
+`Updated_v2/<name>.slides.html` behind (self-contained, opens in any browser
+offline, supports speaker notes) — that file is gitignored, so it's fine to
+keep locally for presenting but don't commit it. See `Updated_v2/README.md`
+for the full three-step breakdown (`build_slides.py` → `export_pdfs.js` →
+`check_overflow.js`) and how to run them individually.
 
 ## Customizing the look
 
 Edit **`theme/custom.css`** — the variables at the top (`--ci-accent`,
-`--ci-bg`, fonts, …) re-skin every deck at once. Re-run `build_slides.py` to
+`--ci-bg`, fonts, …) re-skin every deck at once. Re-run `build_pdfs.py` to
 regenerate. The nbconvert template lives in `theme/index.html.j2`.
 
 ## How it works
 
-`build_slides.py`:
-1. normalizes malformed Markdown table separators in memory (the notebooks are
-   never modified) so newer mistune renders the tables correctly,
-2. runs `nbconvert --to slides` with the custom `theme/` template and
-   `--embed-images`,
-3. inlines the vendored reveal.js core, the notes plugin and MathJax, and
-   base64-embeds every figure, then
-4. writes the finished, self-contained deck to `Updated_v2/`.
+`build_pdfs.py` runs three scripts in sequence:
+1. **`build_slides.py`** normalizes malformed Markdown table separators in
+   memory (the notebooks are never modified) so newer mistune renders the
+   tables correctly, runs `nbconvert --to slides` with the custom `theme/`
+   template and `--embed-images`, inlines the vendored reveal.js core, the
+   notes plugin and MathJax, and base64-embeds every figure, writing the
+   finished, self-contained deck to `Updated_v2/*.slides.html`.
+2. **`export_pdfs.js`** prints that HTML to `Updated_v2/*.pdf` via
+   Chromium/reveal.js's `?print-pdf` mode, one physical page per slide.
+3. **`check_overflow.js`** flags any slide whose content is taller than one
+   page, so it can be fixed (in the notebook, ideally) before committing.
 
 ## Notes
 
-- `node_modules/` and `package-lock.json` are git-ignored; they are only build
-  inputs.
-- The source notebooks (`*.ipynb`), the `Figures/` folder, and the legacy
-  `*.slides.html` files are untouched.
+- `node_modules/`, `package-lock.json`, and `Updated_v2/*.slides.html` are
+  git-ignored; they're build artifacts, not source.
+- The source notebooks (`*.ipynb`) and the `Figures/` folder are untouched.
