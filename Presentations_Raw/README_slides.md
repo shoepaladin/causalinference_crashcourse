@@ -51,6 +51,24 @@ Each run produces a single `Updated_v2/<name>.slides.html` that opens in any
 browser with no internet connection and is small enough to email or drop on a
 static host.
 
+## Exporting to PDF
+
+```bash
+pip install playwright
+playwright install chromium   # skip if Chromium is already vendored/available
+
+# Export every deck in Updated_v2/ to a matching Updated_v2/<name>.pdf
+python build_pdf.py
+
+# Export a single deck
+python build_pdf.py "8 Surrogate Models 20260707 update.ipynb"
+```
+
+`build_pdf.py` renders each `Updated_v2/<name>.slides.html` with headless
+Chromium in reveal.js's built-in `?print-pdf` mode — one slide per page,
+including continuation pages where a slide's content overflows the fixed
+1150×740 canvas. Run `build_slides.py` first; the PDF export reads its output.
+
 ## Customizing the look
 
 Edit **`theme/custom.css`** — the variables at the top (`--ci-accent`,
