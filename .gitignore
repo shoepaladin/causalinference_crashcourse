@@ -4,7 +4,12 @@ OtherMaterial/Data Aggregation and Statistical Power.ipynb
 OtherMaterial/.claude/worktrees/charming-heyrovsky-2a6871/
 OtherMaterial/.claude/settings.json
 
-# Slide build tooling (see Presentations_Raw/build_slides.py)
+# Slide build tooling (see Presentations_Raw/build_pdfs.py)
 Presentations_Raw/node_modules/
 Presentations_Raw/package-lock.json
 Presentations_Raw/.__build_*.ipynb
+Presentations_Raw/__pycache__/
+
+# Rebuilt reveal.js HTML is a local intermediate on the way to a PDF
+# (see Presentations_Raw/build_pdfs.py) — only the PDF is committed.
+Presentations_Raw/Updated_v2/*.slides.html
