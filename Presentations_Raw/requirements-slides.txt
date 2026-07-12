@@ -8,3 +8,8 @@ jupyterlab>=4.0
 # MSE-optimal bandwidth line. The decks themselves build without these.
 rdrobust>=1.2
 rddensity>=2.3
+
+# Only needed to (re)run the Surrogate Models companion notebook
+# (Notebooks/8 Surrogate Models.ipynb) — the gradient-boosting bridge demo.
+# The deck itself builds without this.
+scikit-learn>=1.3

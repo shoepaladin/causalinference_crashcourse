@@ -6,5 +6,8 @@
   "dependencies": {
     "mathjax": "3.2.2",
     "reveal.js": "4.6.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
   }
 }
