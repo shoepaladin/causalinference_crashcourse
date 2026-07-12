@@ -22,8 +22,11 @@ design and the packaging changed.
 | 3. Inference | `3 Inference 20230605 update.pdf` |
 | 5. HTE Models (May) | `5 HTE Models 20230527 update.pdf` |
 | 5. HTE Models (Jun) | `5 HTE Models 20230615 update.pdf` |
+| 6. Panel Models (DiD, SC, SDID) | `6 Panel Models 20260703 update.pdf` |
 | 7. Regression Discontinuity | `7 Regression Discontinuity 20260702 update.pdf` |
+| 8. Surrogate Models | `8 Surrogate Models 20260707 update.pdf` |
 | 9. Arguable Validation | `9 Arguable Validation 20230606 update.pdf` |
+| 10. Conformal Inference | `10 Conformal Inference 20260704 update.pdf` |
 
 ---
 
