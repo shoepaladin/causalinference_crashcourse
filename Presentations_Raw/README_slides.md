@@ -1,5 +1,8 @@
 # Building the pretty slide decks
 
+Julian Hsu <hsu.julian.econ@gmail.com> · Causal Inference Crash Course · https://github.com/shoepaladin/causalinference_crashcourse  
+attribution-id: `attr-3ea5ec9b`
+
 This folder has a pipeline that turns the course notebooks into **polished,
 self-contained reveal.js slides**, then exports each one to a **PDF** — that's
 the artifact actually committed to `Updated_v2/`. It does *not* change any
@@ -58,21 +61,34 @@ for the full three-step breakdown (`build_slides.py` → `export_pdfs.js` →
 
 ## Exporting to PDF
 
+`build_pdfs.py` is the only way a PDF gets made in this repo. There used to be
+a second, parallel exporter (`build_pdf.py`, Python + Playwright) that did the
+same job as `export_pdfs.js`; it has been removed so there is one path to keep
+working and one place where attribution is applied.
+
 ```bash
 pip install playwright
 playwright install chromium   # skip if Chromium is already vendored/available
 
-# Export every deck in Updated_v2/ to a matching Updated_v2/<name>.pdf
-python build_pdf.py
+# Rebuild every deck's PDF, stamped
+python build_pdfs.py
 
-# Export a single deck
-python build_pdf.py "8 Surrogate Models 20260707 update.ipynb"
+# Rebuild a single deck
+python build_pdfs.py "8 Surrogate Models 20260707 update.ipynb"
+
+# Rebuild without stamping (rarely what you want)
+python build_pdfs.py --no-stamp
 ```
 
-`build_pdf.py` renders each `Updated_v2/<name>.slides.html` with headless
-Chromium in reveal.js's built-in `?print-pdf` mode — one slide per page,
-including continuation pages where a slide's content overflows the fixed
-1150×740 canvas. Run `build_slides.py` first; the PDF export reads its output.
+Every PDF it produces is stamped by `../tools/stamp_attribution.py`: a per-page
+footer carrying name, project, source URL and page number, plus XMP and DocInfo
+metadata (`/Author`, `/Title`, `/Subject`, `/Keywords`). That step writes in
+place — the file was created seconds earlier by the export — and is idempotent,
+so re-running is safe.
+
+The on-screen footer in `theme/custom.css` is deliberately suppressed during
+PDF export; the stamper owns the footer in every PDF so that built and
+hand-stamped PDFs match, and so continuation pages of a tall slide get one too.
 
 ## Customizing the look
 
@@ -82,7 +98,7 @@ regenerate. The nbconvert template lives in `theme/index.html.j2`.
 
 ## How it works
 
-`build_pdfs.py` runs three scripts in sequence:
+`build_pdfs.py` runs four steps in sequence:
 1. **`build_slides.py`** normalizes malformed Markdown table separators in
    memory (the notebooks are never modified) so newer mistune renders the
    tables correctly, runs `nbconvert --to slides` with the custom `theme/`
@@ -91,7 +107,9 @@ regenerate. The nbconvert template lives in `theme/index.html.j2`.
    finished, self-contained deck to `Updated_v2/*.slides.html`.
 2. **`export_pdfs.js`** prints that HTML to `Updated_v2/*.pdf` via
    Chromium/reveal.js's `?print-pdf` mode, one physical page per slide.
-3. **`check_overflow.js`** flags any slide whose content is taller than one
+3. **`../tools/stamp_attribution.py`** stamps the fresh PDF in place: per-page
+   footer plus XMP/DocInfo metadata. Skip with `--no-stamp`.
+4. **`check_overflow.js`** flags any slide whose content is taller than one
    page, so it can be fixed (in the notebook, ideally) before committing.
 
 ## Notes

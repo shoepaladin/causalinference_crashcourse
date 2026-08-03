@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Julian Hsu <hsu.julian.econ@gmail.com>
+// Source: https://github.com/shoepaladin/causalinference_crashcourse
+// attribution-id: attr-d6a79952
+
 // Exports each built Updated_v2/*.slides.html reveal.js deck to a PDF
 // (one physical page per slide) using Chromium's native print pipeline via
 // reveal.js's own ?print-pdf mode. Requires `npm install` in this directory

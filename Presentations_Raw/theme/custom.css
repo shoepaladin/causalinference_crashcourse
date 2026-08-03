@@ -235,3 +235,28 @@
 
 /* Keep dense slides from overflowing: allow internal scroll as a fallback. */
 .reveal .slides > section { overflow: visible; }
+
+/* ----- Visible attribution footer (on-screen deck only) ----------------
+   Shown while presenting or viewing the HTML deck. It is deliberately
+   suppressed during ?print-pdf export: tools/stamp_attribution.py owns the
+   footer in every PDF, so that PDFs built by build_pdfs.py and PDFs stamped
+   by hand look the same, and so continuation pages of a tall slide get one
+   too. Having both render stacks two near-identical footers on every page. */
+:root {
+  --ci-attribution: "Julian Hsu · Causal Inference Crash Course · https://github.com/shoepaladin/causalinference_crashcourse";
+}
+
+.reveal:not(:has(.pdf-page))::after {
+  content: var(--ci-attribution);
+  position: absolute;
+  left: 14px;
+  bottom: 8px;
+  z-index: 5;
+  font-family: var(--ci-sans);
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--ci-muted);
+  opacity: 0.85;
+  letter-spacing: 0.2px;
+  pointer-events: none;
+}

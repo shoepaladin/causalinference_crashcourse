@@ -1,5 +1,8 @@
 # Updated_v2 — redesigned slide decks
 
+Julian Hsu <hsu.julian.econ@gmail.com> · Causal Inference Crash Course · https://github.com/shoepaladin/causalinference_crashcourse  
+attribution-id: `attr-116e2fe6`
+
 This folder holds the **redesigned** versions of the causal inference decks,
 shipped as **PDFs** — that's the only artifact committed here. GitHub renders
 PDFs inline and paginated in the repo browser, and these files are well under
@@ -74,7 +77,12 @@ python build_pdfs.py "1 Foundations 20230528 update.ipynb"
 2. **`export_pdfs.js`** — opens that HTML in Chromium via reveal.js's own
    `?print-pdf` mode and prints it to `Updated_v2/*.pdf`, one physical page
    per slide.
-3. **`check_overflow.js`** — flags any slide whose content is taller than one
+3. **`../../tools/stamp_attribution.py`** — stamps the fresh PDF in place with
+   a per-page attribution footer (name, project, source URL, page number) and
+   XMP/DocInfo metadata. This is why every PDF here carries authorship on every
+   page; the on-screen CSS footer is suppressed during export so the two don't
+   stack. Idempotent, and skippable with `python build_pdfs.py --no-stamp`.
+4. **`check_overflow.js`** — flags any slide whose content is taller than one
    page. Left unfixed, reveal.js silently grows that slide's page box and
    Chromium then breaks it at an arbitrary point when printed (no
    continuation heading, sometimes mid-sentence). If a slide is flagged, fix
@@ -87,12 +95,15 @@ interactive/speaker-notes version for presenting (arrow keys to move, **Esc**
 for the overview grid, **F** for fullscreen, **S** for speaker notes), but
 don't commit it.
 
-You can also run the three steps individually — useful when iterating on one
-deck without re-exporting all seven:
+You can also run the steps individually — useful when iterating on one deck
+without re-exporting all seven. Note that going this route skips the stamping
+step, so the PDF it leaves behind is unattributed:
 
 ```bash
 python build_slides.py "1 Foundations 20230528 update.ipynb"
 node export_pdfs.js "Updated_v2/1 Foundations 20230528 update.slides.html"
+python ../tools/stamp_attribution.py --only pdf --in-place \
+    --path "Presentations_Raw/Updated_v2/1 Foundations 20230528 update.pdf"
 node check_overflow.js "Updated_v2/1 Foundations 20230528 update.slides.html"
 ```
 

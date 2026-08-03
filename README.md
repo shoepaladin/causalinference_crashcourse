@@ -7,6 +7,21 @@ Julian Hsu
 Causal Inference Crash Course which is a series of slides/presentations that covers the basics of causal inference. The audience is a scientist interested in learning about causal inference. This is a WiP series. 
 
 
+## Attribution
+
+This course is written and maintained by **Julian Hsu**
+(hsu.julian.econ@gmail.com). The slide decks, the companion simulation notebooks, and
+the figures in them are his work.
+
+**Cite as:** Julian Hsu (2026). *Causal Inference Crash Course*.
+https://github.com/shoepaladin/causalinference_crashcourse
+
+Machine-readable citation metadata lives in `CITATION.cff`. Questions,
+corrections, and requests to reuse any of this are welcome by email.
+
+No license has been granted for this material yet, so the default applies and
+all rights are reserved. If you would like to use it, please ask.
+
 ## Covered Topics
 ### 1. Foundations of Causal Inference
 This covers how the causal inference problem can be thought of as a missing data problem. Specifically the missing counterfactual problem, based on the Potential Outcomes mental model.
