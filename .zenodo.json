@@ -1,0 +1,17 @@
+{
+  "title": "Causal Inference Crash Course",
+  "description": "Slide decks and companion simulation notebooks teaching causal inference to scientists.",
+  "upload_type": "publication",
+  "publication_type": "workingpaper",
+  "creators": [
+    {
+      "name": "Hsu, Julian"
+    }
+  ],
+  "keywords": [
+    "causal inference",
+    "econometrics",
+    "treatment effects",
+    "teaching material"
+  ]
+}

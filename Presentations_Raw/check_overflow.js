@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Julian Hsu <hsu.julian.econ@gmail.com>
+// Source: https://github.com/shoepaladin/causalinference_crashcourse
+// attribution-id: attr-d3443306
+
 // Scans one or more built Updated_v2/*.slides.html decks in reveal.js's
 // ?print-pdf mode and reports any slide whose content is taller than a
 // single physical PDF page (reveal.js's print CSS otherwise silently grows

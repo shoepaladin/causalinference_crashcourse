@@ -1,0 +1,17 @@
+# Dependencies for tools/stamp_attribution.py
+#
+# Also needs the `pdftotext` binary for per-page verification:
+#     apt-get install poppler-utils      (Debian/Ubuntu)
+#     brew install poppler               (macOS)
+# Without it the script falls back to pypdf text extraction and says so in
+# the verification table.
+#
+# cffconvert 2.0.0 pulls in pykwalify -> docopt, which no longer builds on
+# Python 3.11+. Install it as:
+#     pip install docopt-ng && pip install --no-deps cffconvert pykwalify
+#     pip install click "jsonschema<4" python-dateutil ruamel.yaml requests
+
+nbformat>=5.10
+pypdf>=6.0
+pikepdf>=10.0
+reportlab>=4.0

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Julian Hsu <hsu.julian.econ@gmail.com>
+# Source: https://github.com/shoepaladin/causalinference_crashcourse
+# attribution-id: attr-26a415c5
+
 """Monte-Carlo bias/coverage study behind the Panel Models deck.
 
 Fits DiD, SC-ADH, SC-DI, and SDID on `dgp.simulate_panel` data under two

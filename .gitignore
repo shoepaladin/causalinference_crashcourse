@@ -15,3 +15,8 @@ Presentations_Raw/__pycache__/
 # (see Presentations_Raw/build_pdfs.py) — only the PDF is committed.
 Presentations_Raw/Updated_v2/*.slides.html
 Presentations_Raw/*.slides.html
+
+# Canary registry -- this is the detection tool, it must not
+# ship with the material being copied.
+.attribution/
+stamped/

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Julian Hsu <hsu.julian.econ@gmail.com>
+# Source: https://github.com/shoepaladin/causalinference_crashcourse
+# attribution-id: attr-5db74162
+
 """Build pretty, self-contained reveal.js slides from the course notebooks.
 
 This replaces the old one-liner in ``NotebookstoHTML``. For each source

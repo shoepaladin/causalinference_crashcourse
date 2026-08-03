@@ -11,6 +11,30 @@
 
 {# Remove the jquery / requirejs / mermaid CDN <script> tags from <head>. #}
 {% block html_head_js %}
+
+{# ---- Attribution: schema.org JSON-LD + Highwire meta + canonical link. ----
+   Lives in the template, not the generated HTML, so a rebuild can't wipe it.
+   Author comes from the notebook's own metadata.authors when set. #}
+{%- set _author = (nb.metadata.get('authors') or [{'name': 'Julian Hsu'}])[0].get('name', 'Julian Hsu') -%}
+{%- set _title = resources.get('metadata', {}).get('name', 'Causal Inference Crash Course') -%}
+<meta name="author" content="{{ _author }}">
+<link rel="canonical" href="https://github.com/shoepaladin/causalinference_crashcourse">
+<meta name="citation_author" content="{{ _author }}">
+<meta name="citation_title" content="{{ _title }}">
+<meta name="citation_publication_date" content="2026">
+<meta name="citation_pdf_url" content="https://github.com/shoepaladin/causalinference_crashcourse/blob/main/Presentations_Raw/Updated_v2/{{ _title }}.pdf">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "{{ _title }}",
+  "name": "{{ _title }}",
+  "isPartOf": "Causal Inference Crash Course",
+  "author": {"@type": "Person", "name": "{{ _author }}", "email": "hsu.julian.econ@gmail.com"},
+  "datePublished": "2026",
+  "url": "https://github.com/shoepaladin/causalinference_crashcourse"
+}
+</script>
 {% endblock html_head_js %}
 
 {# MathJax 3 (SVG output => no external font files => offline-safe). #}

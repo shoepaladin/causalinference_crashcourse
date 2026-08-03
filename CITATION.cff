@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite it as below."
+title: "Causal Inference Crash Course"
+abstract: "A crash course in causal inference for scientists: slide decks and companion simulation notebooks covering potential outcomes, ATE/ATET models, inference, heterogeneous treatment effects, panel methods, regression discontinuity, surrogate models, validation, and conformal inference."
+type: software
+authors:
+  - family-names: "Hsu"
+    given-names: "Julian"
+    email: "hsu.julian.econ@gmail.com"
+url: "https://github.com/shoepaladin/causalinference_crashcourse"
+repository-code: "https://github.com/shoepaladin/causalinference_crashcourse"
+keywords:
+  - causal inference
+  - econometrics
+  - treatment effects
+  - teaching material
+date-released: "2026-01-01"
