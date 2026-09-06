@@ -235,3 +235,13 @@
 
 /* Keep dense slides from overflowing: allow internal scroll as a fallback. */
 .reveal .slides > section { overflow: visible; }
+
+/* ----- PDF export: no trailing blank page ------------------------------
+   reveal.js's print-pdf mode sets `page-break-after: always` on every
+   .pdf-page, including the last one, which makes Chromium emit one extra,
+   empty page at the end of every exported deck. Cancel the break after the
+   final page. */
+html.print-pdf .reveal .slides .pdf-page:last-child {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}

@@ -20,8 +20,7 @@ design and the packaging changed.
 | 1. Foundations | `1 Foundations 20230528 update.pdf` |
 | 2. Causal Models | `2 Causal Models 20230530 update.pdf` |
 | 3. Inference | `3 Inference 20230605 update.pdf` |
-| 5. HTE Models (May) | `5 HTE Models 20230527 update.pdf` |
-| 5. HTE Models (Jun) | `5 HTE Models 20230615 update.pdf` |
+| 5. HTE Models | `5 HTE Models 20230615 update.pdf` |
 | 6. Panel Models (DiD, SC, SDID) | `6 Panel Models 20260703 update.pdf` |
 | 7. Regression Discontinuity | `7 Regression Discontinuity 20260702 update.pdf` |
 | 8. Surrogate Models | `8 Surrogate Models 20260707 update.pdf` |

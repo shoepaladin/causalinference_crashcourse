@@ -1,5 +1,10 @@
 # Building the pretty slide decks
 
+> **Just want to rebuild after editing a notebook?** Double-click
+> `rebuild_slides.bat` in this folder. See **[HOW_TO_REBUILD.md](HOW_TO_REBUILD.md)**
+> — it installs anything missing and builds every deck in one step.
+> The rest of this file explains what that button is doing.
+
 This folder has a pipeline that turns the course notebooks into **polished,
 self-contained reveal.js slides**, then exports each one to a **PDF** — that's
 the artifact actually committed to `Updated_v2/`. It does *not* change any

@@ -30,6 +30,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+# The status lines below use box-drawing/arrow glyphs. On Windows the console
+# defaults to cp1252, which can't encode them, so force UTF-8 output here
+# rather than crashing mid-build.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # pragma: no cover - non-TTY / old Python
+        pass
+
 HERE = Path(__file__).resolve().parent
 OUT_DIR = HERE / "Updated_v2"
 

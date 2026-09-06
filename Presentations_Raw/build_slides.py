@@ -31,6 +31,15 @@ import sys
 import tempfile
 from pathlib import Path
 
+# The status lines below use box-drawing/arrow glyphs. On Windows the console
+# defaults to cp1252, which can't encode them, so force UTF-8 output here
+# rather than crashing mid-build.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # pragma: no cover - non-TTY / old Python
+        pass
+
 HERE = Path(__file__).resolve().parent
 THEME_DIR = HERE / "theme"
 OUT_DIR = HERE / "Updated_v2"
@@ -39,11 +48,14 @@ NODE_MODULES = HERE / "node_modules"
 
 # Source decks that carry real slide metadata (excludes the simulation helper
 # notebook, which is a data-generation script with no slideshow structure).
+#
+# "5 HTE Models 20230527 update.ipynb" is deliberately absent: its PDF was
+# removed from the repo in favour of the 20230615 revision, and listing it
+# here made every full rebuild resurrect the deleted file.
 SOURCE_DECKS = [
     "1 Foundations 20230528 update.ipynb",
     "2 Causal Models 20230530 update.ipynb",
     "3 Inference 20230605 update.ipynb",
-    "5 HTE Models 20230527 update.ipynb",
     "5 HTE Models 20230615 update.ipynb",
     "9 Arguable Validation 20230606 update.ipynb",
     "7 Regression Discontinuity 20260702 update.ipynb",
