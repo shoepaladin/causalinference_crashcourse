@@ -20,8 +20,7 @@ design and the packaging changed.
 | 1. Foundations | `1 Foundations 20230528 update.pdf` |
 | 2. Causal Models | `2 Causal Models 20230530 update.pdf` |
 | 3. Inference | `3 Inference 20230605 update.pdf` |
-| 5. HTE Models (May) | `5 HTE Models 20230527 update.pdf` |
-| 5. HTE Models (Jun) | `5 HTE Models 20230615 update.pdf` |
+| 5. HTE Models | `5 HTE Models 20230615 update.pdf` |
 | 6. Panel Models (DiD, SC, SDID) | `6 Panel Models 20260703 update.pdf` |
 | 7. Regression Discontinuity | `7 Regression Discontinuity 20260702 update.pdf` |
 | 8. Surrogate Models | `8 Surrogate Models 20260707 update.pdf` |
@@ -64,7 +63,9 @@ python build_pdfs.py
 python build_pdfs.py "1 Foundations 20230528 update.ipynb"
 ```
 
-`build_pdfs.py` runs the full pipeline for each notebook:
+`build_pdfs.py` skips any deck whose PDF is already newer than its notebook
+and the build tooling, so re-running it is cheap; pass `--force` to rebuild
+regardless. For each deck it actually builds:
 
 1. **`build_slides.py`** — renders the notebook to a self-contained reveal.js
    HTML deck in `Updated_v2/*.slides.html` (normalizes malformed Markdown
@@ -73,13 +74,15 @@ python build_pdfs.py "1 Foundations 20230528 update.ipynb"
    base64-embeds every figure). The source notebook is never modified.
 2. **`export_pdfs.js`** — opens that HTML in Chromium via reveal.js's own
    `?print-pdf` mode and prints it to `Updated_v2/*.pdf`, one physical page
-   per slide.
-3. **`check_overflow.js`** — flags any slide whose content is taller than one
-   page. Left unfixed, reveal.js silently grows that slide's page box and
-   Chromium then breaks it at an arbitrary point when printed (no
-   continuation heading, sometimes mid-sentence). If a slide is flagged, fix
-   it in the notebook — either shrink the content or split it into two
-   slides — and re-run `python build_pdfs.py` until it's clean.
+   per slide. It also reports any slide whose content is **cut by a page
+   boundary**: reveal silently grows a tall slide's box to 2-3 pages, and
+   Chromium then slices whatever element straddles the break — mid-sentence,
+   with no continuation heading. Each `CUT` line names the slide and the
+   element being sliced. Fix it in the notebook (shrink or split the slide)
+   and re-run until the report is clean.
+
+   A PDF whose content hasn't changed is left untouched on disk, so
+   rebuilding everything doesn't dirty decks you didn't edit.
 
 Only commit the resulting `Updated_v2/*.pdf`. The `.slides.html` build
 intermediate is gitignored — keep it locally if you want the
@@ -87,13 +90,12 @@ interactive/speaker-notes version for presenting (arrow keys to move, **Esc**
 for the overview grid, **F** for fullscreen, **S** for speaker notes), but
 don't commit it.
 
-You can also run the three steps individually — useful when iterating on one
-deck without re-exporting all seven:
+You can also run the two steps individually — useful when iterating on the
+theme without re-running nbconvert:
 
 ```bash
 python build_slides.py "1 Foundations 20230528 update.ipynb"
 node export_pdfs.js "Updated_v2/1 Foundations 20230528 update.slides.html"
-node check_overflow.js "Updated_v2/1 Foundations 20230528 update.slides.html"
 ```
 
 ### 3. Change the look
@@ -117,10 +119,10 @@ Edit, then re-run `python build_pdfs.py`. The nbconvert template itself is
 
 ```
 Presentations_Raw/
+├── rebuild_slides.bat          # one-click entry point (Windows): setup + build
 ├── build_pdfs.py               # the end-to-end pipeline: notebook → HTML → PDF
 ├── build_slides.py             # step 1: notebook → self-contained HTML
-├── export_pdfs.js              # step 2: HTML → PDF (playwright, print-pdf mode)
-├── check_overflow.js           # step 3: flags slides taller than one page
+├── export_pdfs.js              # step 2: HTML → PDF + page-boundary report
 ├── requirements-slides.txt     # Python deps
 ├── package.json                # reveal.js + mathjax (vendored) + playwright (dev)
 ├── theme/
