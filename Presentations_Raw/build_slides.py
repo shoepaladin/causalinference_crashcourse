@@ -31,6 +31,15 @@ import sys
 import tempfile
 from pathlib import Path
 
+# The status lines below use box-drawing/arrow glyphs. On Windows the console
+# defaults to cp1252, which can't encode them, so force UTF-8 output here
+# rather than crashing mid-build.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # pragma: no cover - non-TTY / old Python
+        pass
+
 HERE = Path(__file__).resolve().parent
 THEME_DIR = HERE / "theme"
 OUT_DIR = HERE / "Updated_v2"
@@ -39,11 +48,16 @@ NODE_MODULES = HERE / "node_modules"
 
 # Source decks that carry real slide metadata (excludes the simulation helper
 # notebook, which is a data-generation script with no slideshow structure).
+#
+# This is the default set, not an allow-list: naming any notebook on the
+# command line still builds it. "5 HTE Models 20230527 update.ipynb" is
+# deliberately absent because its PDF was removed from the repo in favour of
+# the 20230615 revision, and listing it here resurrected the deleted file on
+# every full rebuild.
 SOURCE_DECKS = [
     "1 Foundations 20230528 update.ipynb",
     "2 Causal Models 20230530 update.ipynb",
     "3 Inference 20230605 update.ipynb",
-    "5 HTE Models 20230527 update.ipynb",
     "5 HTE Models 20230615 update.ipynb",
     "9 Arguable Validation 20230606 update.ipynb",
     "7 Regression Discontinuity 20260702 update.ipynb",
@@ -106,10 +120,48 @@ def normalize_markdown(text: str) -> str:
     return "\n".join(out) + ("\n" if text.endswith("\n") else "")
 
 
+# A non-blank, unindented line directly under an *indented* bullet is a "lazy
+# continuation": Markdown folds it into that bullet instead of starting a new
+# paragraph, so a lead-in line silently ends up glued onto the end of the
+# bullet above it. Easy to produce by de-indenting a line, and invisible in the
+# notebook source - so warn, naming the cell, rather than rewriting the text.
+_BULLET = re.compile(r"^(\s*)(?:[*\-+]|\d+\.)\s")
+
+
+def lazy_continuations(text: str) -> list[str]:
+    """Return lines that Markdown will absorb into the bullet above them."""
+    hits = []
+    lines = text.splitlines()
+    for i in range(1, len(lines)):
+        prev, cur = lines[i - 1], lines[i]
+        m = _BULLET.match(prev)
+        if not m or len(m.group(1)) < 2:
+            continue  # previous line isn't an indented bullet
+        if not cur.strip() or _BULLET.match(cur):
+            continue  # blank, or itself a bullet - fine
+        if cur[:1] in (" ", "\t", "#", "|", "!", "<", "$"):
+            continue  # indented, heading, table, image, html, display math
+        hits.append(cur.strip())
+    return hits
+
+
+def warn_markdown_traps(notebook: Path, nb: dict) -> None:
+    """Flag markdown that renders differently from how it reads in the source."""
+    for i, cell in enumerate(nb.get("cells", [])):
+        if cell.get("cell_type") != "markdown":
+            continue
+        for line in lazy_continuations("".join(cell.get("source", []))):
+            print(f"  \u26a0 {notebook.name} cell {i}: this line will be absorbed "
+                  f"into the bullet above it:")
+            print(f"      {line[:70]!r}")
+            print("      Add a blank line before it to keep it separate.")
+
+
 def normalized_notebook(notebook: Path) -> Path:
     """Write a temp copy of the notebook (in the source dir, so Figures/ paths
     still resolve) with markdown tables normalized. Returns the temp path."""
     nb = json.loads(notebook.read_text(encoding="utf-8"))
+    warn_markdown_traps(notebook, nb)
     for cell in nb.get("cells", []):
         if cell.get("cell_type") == "markdown":
             src = "".join(cell.get("source", []))

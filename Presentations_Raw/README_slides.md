@@ -1,5 +1,10 @@
 # Building the pretty slide decks
 
+> **Just want to rebuild after editing a notebook?** Double-click
+> `rebuild_slides.bat` in this folder. See **[HOW_TO_REBUILD.md](HOW_TO_REBUILD.md)**
+> — it installs anything missing and builds every deck in one step.
+> The rest of this file explains what that button is doing.
+
 This folder has a pipeline that turns the course notebooks into **polished,
 self-contained reveal.js slides**, then exports each one to a **PDF** — that's
 the artifact actually committed to `Updated_v2/`. It does *not* change any
@@ -53,26 +58,8 @@ Each run produces `Updated_v2/<name>.pdf` — commit that. It also leaves a
 `Updated_v2/<name>.slides.html` behind (self-contained, opens in any browser
 offline, supports speaker notes) — that file is gitignored, so it's fine to
 keep locally for presenting but don't commit it. See `Updated_v2/README.md`
-for the full three-step breakdown (`build_slides.py` → `export_pdfs.js` →
-`check_overflow.js`) and how to run them individually.
-
-## Exporting to PDF
-
-```bash
-pip install playwright
-playwright install chromium   # skip if Chromium is already vendored/available
-
-# Export every deck in Updated_v2/ to a matching Updated_v2/<name>.pdf
-python build_pdf.py
-
-# Export a single deck
-python build_pdf.py "8 Surrogate Models 20260707 update.ipynb"
-```
-
-`build_pdf.py` renders each `Updated_v2/<name>.slides.html` with headless
-Chromium in reveal.js's built-in `?print-pdf` mode — one slide per page,
-including continuation pages where a slide's content overflows the fixed
-1150×740 canvas. Run `build_slides.py` first; the PDF export reads its output.
+for the full two-step breakdown (`build_slides.py` → `export_pdfs.js`) and
+how to run them individually.
 
 ## Customizing the look
 
@@ -82,7 +69,8 @@ regenerate. The nbconvert template lives in `theme/index.html.j2`.
 
 ## How it works
 
-`build_pdfs.py` runs three scripts in sequence:
+`build_pdfs.py` skips decks that are already up to date (`--force` overrides)
+and runs two scripts in sequence:
 1. **`build_slides.py`** normalizes malformed Markdown table separators in
    memory (the notebooks are never modified) so newer mistune renders the
    tables correctly, runs `nbconvert --to slides` with the custom `theme/`
@@ -91,8 +79,9 @@ regenerate. The nbconvert template lives in `theme/index.html.j2`.
    finished, self-contained deck to `Updated_v2/*.slides.html`.
 2. **`export_pdfs.js`** prints that HTML to `Updated_v2/*.pdf` via
    Chromium/reveal.js's `?print-pdf` mode, one physical page per slide.
-3. **`check_overflow.js`** flags any slide whose content is taller than one
-   page, so it can be fixed (in the notebook, ideally) before committing.
+   It also reports any slide whose content is cut by a page boundary, naming
+   the element being sliced, and leaves a PDF untouched when only its
+   timestamp would change.
 
 ## Notes
 
