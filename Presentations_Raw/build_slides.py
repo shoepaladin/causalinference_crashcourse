@@ -193,6 +193,24 @@ def run_nbconvert(notebook: Path, workdir: Path, out_stem: str) -> str:
 # --------------------------------------------------------------------------- #
 # Post-processing: inline everything so the file is standalone.
 # --------------------------------------------------------------------------- #
+# reveal's bundled themes open with
+#     @import url(./fonts/source-sans-pro/source-sans-pro.css);
+# a *relative* path that, once the theme is inlined into a deck in Updated_v2/,
+# resolves to a file that isn't there. The browser fetches nothing (file:// 404
+# / blocked scheme) and silently falls back - and custom.css overrides
+# --r-main-font and --r-heading-font with the system stack anyway, so the
+# webfont is never applied even when it does load. Drop the rule: it can only
+# cost a failed request and a console error.
+_THEME_FONT_IMPORT = re.compile(r'^\s*@import\s+url\([^)]*fonts/[^)]*\);\s*$',
+                                re.MULTILINE)
+
+
+def strip_font_imports(css: str) -> tuple[str, int]:
+    """Remove reveal's relative webfont @imports from a bundled theme."""
+    css, n = _THEME_FONT_IMPORT.subn("", css)
+    return css, n
+
+
 def data_uri(path: Path) -> str | None:
     if not path.exists():
         return None
@@ -230,9 +248,13 @@ def inline_assets(html: str, assets: dict[str, str]) -> str:
     # The reveal theme link is the last stylesheet nbconvert emits, so append
     # custom.css right after it to guarantee our design system wins.
     custom_css = (THEME_DIR / "custom.css").read_text(encoding="utf-8")
+    theme_css, n_imports = strip_font_imports(assets["theme_css"])
+    if n_imports:
+        print(f"  · dropped {n_imports} unresolvable webfont @import from the "
+              f"reveal theme")
     html = re.sub(
         r'<link\b[^>]*\bhref="https://[^"]*/dist/theme/[^"]+\.css"[^>]*>',
-        f'<style id="theme">\n{assets["theme_css"]}\n</style>\n'
+        f'<style id="theme">\n{theme_css}\n</style>\n'
         f'<style id="ci-custom">\n{custom_css}\n</style>',
         html, count=1)
 

@@ -141,6 +141,11 @@ reveal.js's `page-break-after: always` on the final page. That rule keys off
 `.pdf-page:last-child`, and the exporter prints a `NOTE` if anything ever
 starts following the last page, which would silently break it.
 
+**Do I need to be online?** Only for the one-time setup (`pip install`,
+`npm install`, `playwright install chromium`). After that the build makes zero
+network requests, and the decks it produces are self-contained — reveal.js,
+MathJax and every figure are inlined, so they present offline too.
+
 **"Executable doesn't exist" from playwright.** The Chromium revision moved
 when the `playwright` package was upgraded. `npx playwright install chromium`,
 or just re-run the batch file — its check asks playwright for the real path
