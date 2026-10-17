@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/hsuju/anaconda3/**)",
+      "Bash(python -c \"import numpy, pandas; print\\(numpy.__version__\\)\")",
+      "Bash(python -m pip show numpy pandas)",
+      "Bash(python -m pip list)",
+      "Bash(python -m pip uninstall -y numpy pandas)",
+      "Bash(python -m pip install --no-cache-dir numpy pandas)",
+      "Bash(\"/c/Users/hsuju/anaconda3/python.exe\" --version)",
+      "Bash(/c/Users/hsuju/anaconda3/python.exe -c 'import sys; print\\(sys.executable\\)')",
+      "Bash(/c/Users/hsuju/anaconda3/python.exe -m pip list)",
+      "Read(//c/Users/hsuju/anaconda3/Lib/site-packages/**)"
+    ]
+  }
+}
